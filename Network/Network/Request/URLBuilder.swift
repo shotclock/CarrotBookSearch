@@ -9,26 +9,26 @@ import Foundation
 import NetworkInterface
 
 public final class URLBuilder: URLBuildable {
-    private var product: URLComponents?
+    private var product: URLComponents
     
-    init(urlString: String) {
-        self.product = URLComponents(string: urlString)
+    public init() {
+        product = URLComponents()
     }
     
     public func addScheme(_ scheme: String = "https") -> Self {
-        product?.scheme = scheme
+        product.scheme = scheme
         
         return self
     }
     
     public func addHost(_ host: String) -> Self {
-        product?.host = host
+        product.host = host
         
         return self
     }
     
     public func addQuery(_ query: [String: Any?]) -> Self {
-        var queryItems: [URLQueryItem] = product?.queryItems ?? []
+        var queryItems: [URLQueryItem] = product.queryItems ?? []
         
         queryItems.append(
             contentsOf: query.compactMap { (key: String, value: Any?) in
@@ -40,18 +40,18 @@ public final class URLBuilder: URLBuildable {
                                     value: "\(value)")
             }
         )
-        product?.queryItems = queryItems
+        product.queryItems = queryItems
         
         return self
     }
     
     public func addPath(_ path: String) -> Self {
-        product?.path = path
+        product.path = path
         
         return self
     }
     
     public func build() -> URL? {
-        product?.url
+        product.url
     }
 }
