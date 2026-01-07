@@ -1,0 +1,11 @@
+//
+//  HTTPMethod.swift
+//  Network
+//
+//  Created by 이상호 on 1/7/26.
+//
+
+public enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+}
