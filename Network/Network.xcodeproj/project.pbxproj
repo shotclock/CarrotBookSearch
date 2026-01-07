@@ -104,6 +104,22 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		2B0AD97C2F0EB63C00F162E0 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				2B0AD9772F0EAD0100F162E0 /* URLSessionNetworkClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		2B0AD97D2F0EB64500F162E0 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				2BDF5C382F0E852700A8DD2C /* NetworkClient.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		2BDF5BE82F0E83B500A8DD2C = {
 			isa = PBXGroup;
 			children = (
@@ -135,8 +151,8 @@
 		2BDF5C2D2F0E848800A8DD2C /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2B0AD97C2F0EB63C00F162E0 /* Client */,
 				2B0AD97B2F0EB3E500F162E0 /* Request */,
-				2B0AD9772F0EAD0100F162E0 /* URLSessionNetworkClient.swift */,
 				2BDF5C2B2F0E848800A8DD2C /* Network.docc */,
 			);
 			path = Network;
@@ -153,10 +169,10 @@
 		2BDF5C352F0E848C00A8DD2C /* NetworkInterface */ = {
 			isa = PBXGroup;
 			children = (
+				2B0AD97D2F0EB64500F162E0 /* Client */,
 				2BDF5C3F2F0E8AA900A8DD2C /* Error */,
 				2BDF5C3E2F0E8AA400A8DD2C /* Request */,
 				2BDF5C3D2F0E8A9D00A8DD2C /* HTTP */,
-				2BDF5C382F0E852700A8DD2C /* NetworkClient.swift */,
 				2BDF5C332F0E848C00A8DD2C /* NetworkInterface.docc */,
 			);
 			path = NetworkInterface;
