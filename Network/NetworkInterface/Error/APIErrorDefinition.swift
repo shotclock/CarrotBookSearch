@@ -8,9 +8,9 @@
 import Foundation
 
 public protocol APIErrorDefinition: LocalizedError {
-    associatedtype ErrorResponse: Decodable
+    associatedtype Response: Decodable
     
-    var errorResponse: ErrorResponse? { get }
+    var errorResponse: Response? { get }
 
-    init(errorResponse: ErrorResponse?)
+    init(errorResponse: Response?)
 }

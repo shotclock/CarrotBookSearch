@@ -10,9 +10,9 @@ import Foundation
 public protocol RequestSpecification {
     associatedtype Response: Decodable
     associatedtype Parameter: Encodable
+    associatedtype ErrorResponse: APIErrorDefinition
     
     var urlBuilder: URLBuildable { get }
     var requestInfo: RequestInfo { get }
-    var errorDefinition: any APIErrorDefinition.Type { get }
     func urlRequest() throws -> URLRequest
 }
