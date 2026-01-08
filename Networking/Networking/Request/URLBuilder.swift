@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import NetworkInterface
 
-public final class URLBuilder: URLBuildable {
+public final class URLBuilder {
     private var product: URLComponents
     
     public init() {
@@ -23,24 +22,6 @@ public final class URLBuilder: URLBuildable {
     
     public func addHost(_ host: String) -> Self {
         product.host = host
-        
-        return self
-    }
-    
-    public func addQuery(_ query: [String: Any?]) -> Self {
-        var queryItems: [URLQueryItem] = product.queryItems ?? []
-        
-        queryItems.append(
-            contentsOf: query.compactMap { (key: String, value: Any?) in
-                guard let value else {
-                    return nil
-                }
-                
-                return URLQueryItem(name: key,
-                                    value: "\(value)")
-            }
-        )
-        product.queryItems = queryItems
         
         return self
     }

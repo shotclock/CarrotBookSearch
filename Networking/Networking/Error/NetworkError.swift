@@ -7,4 +7,6 @@
 
 public enum NetworkError: Error {
     case emptyResponseData
+    case serverError(errorCode: Int)
+    case wrongURL
 }
