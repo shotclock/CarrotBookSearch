@@ -28,8 +28,8 @@ public extension RequestSpecification {
 }
 
 public extension RequestSpecification {
-    func request() async throws -> Response {
-        let urlSession = URLSession(configuration: .default)
+    func request(configuration: URLSessionConfiguration = .default) async throws -> Response {
+        let urlSession = URLSession(configuration: configuration)
         let (data, urlResponse) = try await urlSession.data(for: urlRequest())
         
         guard let urlResponse = urlResponse as? HTTPURLResponse else {
