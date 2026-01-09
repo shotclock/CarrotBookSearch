@@ -19,7 +19,7 @@ protocol BookListViewControllerPresentable: AnyObject {
     var listener: BookListViewControllerListener? { get set }
 }
 
-final class BookListInteractor: Interactor<BookListViewControllerPresentable>, BookListInteractable, BookListViewControllerListener {
+final class BookListInteractor: Interactor<BookListViewControllerPresentable>, BookListInteractable {
     weak var router: BookListRoutable?
     weak var listener: BookListListener?
     
@@ -36,8 +36,15 @@ final class BookListInteractor: Interactor<BookListViewControllerPresentable>, B
     override func detached() {
         super.detached()
     }
-    
+}
+
+// MARK: BookListViewControllerListener
+extension BookListInteractor: BookListViewControllerListener {
     func didRequestSearch(keyword: String) {
         print("키워드 \(keyword)")
+    }
+    
+    func didSelectBook(_ book: DummyBook) {
+        print("셀 터치 완료 \(book)")
     }
 }

@@ -20,6 +20,7 @@
 		2BAE78212F113A3F0081BB43 /* BookListInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78002F1138450081BB43 /* BookListInterface.framework */; };
 		2BAE782B2F113A550081BB43 /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE782A2F113A550081BB43 /* Base.framework */; };
 		2BAE78302F113CDF0081BB43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE782F2F113CDF0081BB43 /* Images.xcassets */; };
+		2BAE78472F115B0D0081BB43 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78462F115B070081BB43 /* BookTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		2BAE78262F113A470081BB43 /* Base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE782A2F113A550081BB43 /* Base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE782F2F113CDF0081BB43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2BAE78462F115B070081BB43 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 		2BAE78102F1139F30081BB43 /* BookList */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78452F115B020081BB43 /* Cell */,
 				2BAE78112F113A0B0081BB43 /* BookListBuilder.swift */,
 				2BAE78122F113A0B0081BB43 /* BookListComponent.swift */,
 				2BAE78132F113A0B0081BB43 /* BookListInteractor.swift */,
@@ -176,6 +179,14 @@
 				2BAE782F2F113CDF0081BB43 /* Images.xcassets */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		2BAE78452F115B020081BB43 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE78462F115B070081BB43 /* BookTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +345,7 @@
 				2BAE77F42F1138210081BB43 /* List.docc in Sources */,
 				2BAE78162F113A0B0081BB43 /* BookListInteractor.swift in Sources */,
 				2BAE78172F113A0B0081BB43 /* BookListBuilder.swift in Sources */,
+				2BAE78472F115B0D0081BB43 /* BookTableViewCell.swift in Sources */,
 				2BAE78182F113A0B0081BB43 /* BookListViewController.swift in Sources */,
 				2BAE78192F113A0B0081BB43 /* BookListRouter.swift in Sources */,
 				2BAE781A2F113A0B0081BB43 /* BookListComponent.swift in Sources */,
