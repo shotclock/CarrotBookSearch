@@ -19,6 +19,7 @@
 		2BAE77C12F1130570081BB43 /* TestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77C02F11304B0081BB43 /* TestInteractor.swift */; };
 		2BAE77C32F1130780081BB43 /* TestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77C22F1130770081BB43 /* TestRouter.swift */; };
 		2BAE77C52F11309A0081BB43 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77C42F11309A0081BB43 /* RouterTests.swift */; };
+		2BAE784B2F115EBE0081BB43 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE784A2F115EB90081BB43 /* Array+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		2BAE77C02F11304B0081BB43 /* TestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestInteractor.swift; sourceTree = "<group>"; };
 		2BAE77C22F1130770081BB43 /* TestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRouter.swift; sourceTree = "<group>"; };
 		2BAE77C42F11309A0081BB43 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		2BAE784A2F115EB90081BB43 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 		2BAE778E2F1121C20081BB43 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78492F115EB60081BB43 /* Extension */,
 				2BAE77A22F11256D0081BB43 /* Component */,
 				2BAE77992F1122830081BB43 /* Router */,
 				2BAE77942F1122450081BB43 /* Interactor */,
@@ -139,6 +142,14 @@
 				2BAE77C02F11304B0081BB43 /* TestInteractor.swift */,
 			);
 			path = Dummy;
+			sourceTree = "<group>";
+		};
+		2BAE78492F115EB60081BB43 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE784A2F115EB90081BB43 /* Array+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 				2BAE77962F11224D0081BB43 /* Interactable.swift in Sources */,
 				2BAE779E2F1122BB0081BB43 /* Routable.swift in Sources */,
 				2BAE77A02F1122F30081BB43 /* ViewableRouter.swift in Sources */,
+				2BAE784B2F115EBE0081BB43 /* Array+Extension.swift in Sources */,
 				2BAE778F2F1121C20081BB43 /* Base.docc in Sources */,
 				2BAE77982F11226C0081BB43 /* Interactor.swift in Sources */,
 				2BAE77A62F11257F0081BB43 /* Component.swift in Sources */,
