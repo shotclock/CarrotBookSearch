@@ -7,7 +7,7 @@
 
 import UIKit
 import Base
-import ListInterface
+import BookListInterface
 
 // 라우터 -> 뷰모델
 // 하위 뷰모델의 리스너 conform

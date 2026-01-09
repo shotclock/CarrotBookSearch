@@ -5,7 +5,8 @@
 //  Created by 이상호 on 1/9/26.
 //
 
-import ListInterface
+import Base
+import BookListInterface
 
 public protocol BookListDependency: Dependency {
     

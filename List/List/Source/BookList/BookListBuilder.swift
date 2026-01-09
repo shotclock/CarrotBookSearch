@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ListInterface
+import BookListInterface
 import Base
 
 public final class BookListBuilder: BookListBuildable {

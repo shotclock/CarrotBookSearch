@@ -7,7 +7,7 @@
 
 import Foundation
 import Base
-import ListInterface
+import BookListInterface
 
 // 뷰모델 -> 라우터
 protocol BookListRoutable: Routable {
@@ -35,5 +35,9 @@ final class BookListInteractor: Interactor<BookListViewControllerPresentable>, B
     
     override func detached() {
         super.detached()
+    }
+    
+    func didRequestSearch(keyword: String) {
+        print("키워드 \(keyword)")
     }
 }

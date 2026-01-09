@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BAE77DD2F1137D50081BB43 /* List.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE77D12F1137D50081BB43 /* List.framework */; };
+		2BAE77DD2F1137D50081BB43 /* BookList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE77D12F1137D50081BB43 /* BookList.framework */; };
 		2BAE77F42F1138210081BB43 /* List.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77F12F1138210081BB43 /* List.docc */; };
 		2BAE77F82F1138230081BB43 /* ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77F62F1138230081BB43 /* ListTests.swift */; };
 		2BAE78162F113A0B0081BB43 /* BookListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78132F113A0B0081BB43 /* BookListInteractor.swift */; };
@@ -17,8 +17,9 @@
 		2BAE781A2F113A0B0081BB43 /* BookListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78122F113A0B0081BB43 /* BookListComponent.swift */; };
 		2BAE781E2F113A290081BB43 /* BookListBuildable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE781C2F113A290081BB43 /* BookListBuildable.swift */; };
 		2BAE781F2F113A290081BB43 /* BookListListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE781D2F113A290081BB43 /* BookListListener.swift */; };
-		2BAE78212F113A3F0081BB43 /* ListInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78002F1138450081BB43 /* ListInterface.framework */; };
+		2BAE78212F113A3F0081BB43 /* BookListInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78002F1138450081BB43 /* BookListInterface.framework */; };
 		2BAE782B2F113A550081BB43 /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE782A2F113A550081BB43 /* Base.framework */; };
+		2BAE78302F113CDF0081BB43 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BAE782F2F113CDF0081BB43 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,11 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2BAE77D12F1137D50081BB43 /* List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BAE77DC2F1137D50081BB43 /* ListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAE77D12F1137D50081BB43 /* BookList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAE77DC2F1137D50081BB43 /* BookListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE77F12F1138210081BB43 /* List.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = List.docc; sourceTree = "<group>"; };
 		2BAE77F62F1138230081BB43 /* ListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTests.swift; sourceTree = "<group>"; };
-		2BAE78002F1138450081BB43 /* ListInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ListInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAE78002F1138450081BB43 /* BookListInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BookListInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE78112F113A0B0081BB43 /* BookListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListBuilder.swift; sourceTree = "<group>"; };
 		2BAE78122F113A0B0081BB43 /* BookListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListComponent.swift; sourceTree = "<group>"; };
 		2BAE78132F113A0B0081BB43 /* BookListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListInteractor.swift; sourceTree = "<group>"; };
@@ -53,6 +54,7 @@
 		2BAE781D2F113A290081BB43 /* BookListListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListListener.swift; sourceTree = "<group>"; };
 		2BAE78262F113A470081BB43 /* Base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE782A2F113A550081BB43 /* Base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAE782F2F113CDF0081BB43 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BAE78212F113A3F0081BB43 /* ListInterface.framework in Frameworks */,
+				2BAE78212F113A3F0081BB43 /* BookListInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BAE77DD2F1137D50081BB43 /* List.framework in Frameworks */,
+				2BAE77DD2F1137D50081BB43 /* BookList.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,9 +98,9 @@
 		2BAE77D22F1137D50081BB43 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2BAE77D12F1137D50081BB43 /* List.framework */,
-				2BAE77DC2F1137D50081BB43 /* ListTests.xctest */,
-				2BAE78002F1138450081BB43 /* ListInterface.framework */,
+				2BAE77D12F1137D50081BB43 /* BookList.framework */,
+				2BAE77DC2F1137D50081BB43 /* BookListTests.xctest */,
+				2BAE78002F1138450081BB43 /* BookListInterface.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,6 +108,7 @@
 		2BAE77F32F1138210081BB43 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE782E2F113CBA0081BB43 /* Resource */,
 				2BAE77FA2F11382C0081BB43 /* Source */,
 				2BAE77F92F1138270081BB43 /* Interface */,
 				2BAE77F12F1138210081BB43 /* List.docc */,
@@ -167,6 +170,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2BAE782E2F113CBA0081BB43 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE782F2F113CDF0081BB43 /* Images.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -187,9 +198,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2BAE77D02F1137D50081BB43 /* List */ = {
+		2BAE77D02F1137D50081BB43 /* BookList */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BAE77E52F1137D50081BB43 /* Build configuration list for PBXNativeTarget "List" */;
+			buildConfigurationList = 2BAE77E52F1137D50081BB43 /* Build configuration list for PBXNativeTarget "BookList" */;
 			buildPhases = (
 				2BAE77CC2F1137D50081BB43 /* Headers */,
 				2BAE77CD2F1137D50081BB43 /* Sources */,
@@ -201,16 +212,16 @@
 			dependencies = (
 				2BAE78242F113A3F0081BB43 /* PBXTargetDependency */,
 			);
-			name = List;
+			name = BookList;
 			packageProductDependencies = (
 			);
 			productName = List;
-			productReference = 2BAE77D12F1137D50081BB43 /* List.framework */;
+			productReference = 2BAE77D12F1137D50081BB43 /* BookList.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		2BAE77DB2F1137D50081BB43 /* ListTests */ = {
+		2BAE77DB2F1137D50081BB43 /* BookListTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BAE77E82F1137D50081BB43 /* Build configuration list for PBXNativeTarget "ListTests" */;
+			buildConfigurationList = 2BAE77E82F1137D50081BB43 /* Build configuration list for PBXNativeTarget "BookListTests" */;
 			buildPhases = (
 				2BAE77D82F1137D50081BB43 /* Sources */,
 				2BAE77D92F1137D50081BB43 /* Frameworks */,
@@ -221,16 +232,16 @@
 			dependencies = (
 				2BAE77DF2F1137D50081BB43 /* PBXTargetDependency */,
 			);
-			name = ListTests;
+			name = BookListTests;
 			packageProductDependencies = (
 			);
 			productName = ListTests;
-			productReference = 2BAE77DC2F1137D50081BB43 /* ListTests.xctest */;
+			productReference = 2BAE77DC2F1137D50081BB43 /* BookListTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2BAE77FF2F1138450081BB43 /* ListInterface */ = {
+		2BAE77FF2F1138450081BB43 /* BookListInterface */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BAE78042F1138450081BB43 /* Build configuration list for PBXNativeTarget "ListInterface" */;
+			buildConfigurationList = 2BAE78042F1138450081BB43 /* Build configuration list for PBXNativeTarget "BookListInterface" */;
 			buildPhases = (
 				2BAE77FB2F1138450081BB43 /* Headers */,
 				2BAE77FC2F1138450081BB43 /* Sources */,
@@ -241,11 +252,11 @@
 			);
 			dependencies = (
 			);
-			name = ListInterface;
+			name = BookListInterface;
 			packageProductDependencies = (
 			);
 			productName = ListInterface;
-			productReference = 2BAE78002F1138450081BB43 /* ListInterface.framework */;
+			productReference = 2BAE78002F1138450081BB43 /* BookListInterface.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -269,7 +280,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2BAE77CB2F1137D50081BB43 /* Build configuration list for PBXProject "List" */;
+			buildConfigurationList = 2BAE77CB2F1137D50081BB43 /* Build configuration list for PBXProject "BookList" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -283,9 +294,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2BAE77D02F1137D50081BB43 /* List */,
-				2BAE77FF2F1138450081BB43 /* ListInterface */,
-				2BAE77DB2F1137D50081BB43 /* ListTests */,
+				2BAE77D02F1137D50081BB43 /* BookList */,
+				2BAE77FF2F1138450081BB43 /* BookListInterface */,
+				2BAE77DB2F1137D50081BB43 /* BookListTests */,
 			);
 		};
 /* End PBXProject section */
@@ -295,6 +306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78302F113CDF0081BB43 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,12 +362,12 @@
 /* Begin PBXTargetDependency section */
 		2BAE77DF2F1137D50081BB43 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2BAE77D02F1137D50081BB43 /* List */;
+			target = 2BAE77D02F1137D50081BB43 /* BookList */;
 			targetProxy = 2BAE77DE2F1137D50081BB43 /* PBXContainerItemProxy */;
 		};
 		2BAE78242F113A3F0081BB43 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2BAE77FF2F1138450081BB43 /* ListInterface */;
+			target = 2BAE77FF2F1138450081BB43 /* BookListInterface */;
 			targetProxy = 2BAE78232F113A3F0081BB43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -651,7 +663,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2BAE77CB2F1137D50081BB43 /* Build configuration list for PBXProject "List" */ = {
+		2BAE77CB2F1137D50081BB43 /* Build configuration list for PBXProject "BookList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BAE77E32F1137D50081BB43 /* Debug */,
@@ -660,7 +672,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BAE77E52F1137D50081BB43 /* Build configuration list for PBXNativeTarget "List" */ = {
+		2BAE77E52F1137D50081BB43 /* Build configuration list for PBXNativeTarget "BookList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BAE77E62F1137D50081BB43 /* Debug */,
@@ -669,7 +681,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BAE77E82F1137D50081BB43 /* Build configuration list for PBXNativeTarget "ListTests" */ = {
+		2BAE77E82F1137D50081BB43 /* Build configuration list for PBXNativeTarget "BookListTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BAE77E92F1137D50081BB43 /* Debug */,
@@ -678,7 +690,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BAE78042F1138450081BB43 /* Build configuration list for PBXNativeTarget "ListInterface" */ = {
+		2BAE78042F1138450081BB43 /* Build configuration list for PBXNativeTarget "BookListInterface" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BAE78052F1138450081BB43 /* Debug */,
