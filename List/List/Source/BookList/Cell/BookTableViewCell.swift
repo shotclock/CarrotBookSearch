@@ -11,6 +11,35 @@ final class BookTableViewCell: UITableViewCell {
     // MARK: Definition
     static let reuseIdentifier = String(describing: BookTableViewCell.self)
     
+    struct UI {
+        struct BookImageView {
+            static let size: CGSize = .init(width: 60,
+                                            height: 90)
+            static let horizontalPadding: CGFloat = 12
+        }
+        
+        struct LabelsStackView {
+            static let spacing: CGFloat = 2
+            static let padding: NSDirectionalEdgeInsets = .init(top: 8,
+                                                                leading: 12,
+                                                                bottom: 8,
+                                                                trailing: 12)
+        }
+        
+        struct Fonts {
+            static let title: UIFont = .systemFont(ofSize: 17,
+                                                   weight: .bold)
+            static let subtitle: UIFont = .systemFont(ofSize: 13,
+                                                      weight: .medium)
+            static let isbn13: UIFont = .systemFont(ofSize: 10,
+                                                    weight: .regular)
+            static let price: UIFont = .systemFont(ofSize: 14,
+                                                   weight: .medium)
+            static let url: UIFont = .systemFont(ofSize: 13,
+                                                 weight: .regular)
+        }
+    }
+    
     // MARK: Properties
     private let bookImageView: UIImageView = {
         let imageView = UIImageView()
@@ -24,8 +53,7 @@ final class BookTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 17,
-                                 weight: .bold)
+        label.font = UI.Fonts.title
         label.setContentCompressionResistancePriority(.required,
                                                       for: .vertical)
         label.setContentHuggingPriority(.required, for: .vertical)
@@ -37,16 +65,14 @@ final class BookTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .secondaryLabel
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 13,
-                                 weight: .medium)
+        label.font = UI.Fonts.subtitle
         
         return label
     }()
     
     private let isbn13Label: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 10,
-                                 weight: .regular)
+        label.font = UI.Fonts.isbn13
         label.textColor = .tertiaryLabel
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -56,8 +82,7 @@ final class BookTableViewCell: UITableViewCell {
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14,
-                                 weight: .medium)
+        label.font = UI.Fonts.price
         label.textColor = .systemBlue
         label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -67,8 +92,7 @@ final class BookTableViewCell: UITableViewCell {
     
     private let urlLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 13,
-                                 weight: .regular)
+        label.font = UI.Fonts.url
         label.textColor = .systemGray
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingMiddle
@@ -80,7 +104,7 @@ final class BookTableViewCell: UITableViewCell {
     private let labelsStackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
-        stack.spacing = 2
+        stack.spacing = UI.LabelsStackView.spacing
         stack.alignment = .leading
         stack.distribution = .fill
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -122,15 +146,15 @@ final class BookTableViewCell: UITableViewCell {
         labelsStackView.addArrangedSubview(urlLabel)
         
         NSLayoutConstraint.activate([
-            bookImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            bookImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: UI.BookImageView.horizontalPadding),
             bookImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            bookImageView.widthAnchor.constraint(equalToConstant: 60),
-            bookImageView.heightAnchor.constraint(equalToConstant: 90),
+            bookImageView.widthAnchor.constraint(equalToConstant: UI.BookImageView.size.width),
+            bookImageView.heightAnchor.constraint(equalToConstant: UI.BookImageView.size.height),
             
-            labelsStackView.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 12),
-            labelsStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-            labelsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            labelsStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -8)
+            labelsStackView.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: UI.LabelsStackView.padding.leading),
+            labelsStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: UI.LabelsStackView.padding.top),
+            labelsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UI.LabelsStackView.padding.trailing),
+            labelsStackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -UI.LabelsStackView.padding.bottom)
         ])
     }
     
