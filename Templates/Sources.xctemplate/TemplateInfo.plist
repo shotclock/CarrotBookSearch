@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SupportsSwiftPackage</key>
+	<true/>
+	<key>Description</key>
+	<string>An Interface Builder document for creating an iOS view.</string>
+	<key>MainTemplateFile</key>
+	<string>___FILEBASENAME___.swift</string>
+	<key>SortOrder</key>
+	<integer>10</integer>
+	<key>Platforms</key>
+	<array>
+		<string>com.apple.platform.iphoneos</string>
+	</array>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>text</string>
+			<key>NotPersisted</key>
+			<string>YES</string>
+			<key>Description</key>
+			<string>기능의 접두어를 카멜케이스로  입력해주세요</string>
+			<key>Identifier</key>
+			<string>lowerCaseProductName</string>
+			<key>Required</key>
+			<string>YES</string>
+			<key>Name</key>
+			<string>LowCasePrefix</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>productName</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Prefix:</string>
+			<key>Description</key>
+			<string>기능의 접두어를 입력해주세요.</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>NotPersisted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>moduleName</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>연결모듈:</string>
+			<key>Description</key>
+			<string>가져올 모듈의 이름</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>Default</key>
+			<string></string>
+		</dict>
+	</array>
+</dict>
+</plist>
