@@ -9,13 +9,14 @@
 /* Begin PBXBuildFile section */
 		2BAE777E2F1121BD0081BB43 /* Base.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE77722F1121BD0081BB43 /* Base.framework */; };
 		2BAE778F2F1121C20081BB43 /* Base.docc in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE778C2F1121C20081BB43 /* Base.docc */; };
-		2BAE77902F1121C20081BB43 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE778D2F1121C20081BB43 /* Base.swift */; };
 		2BAE77932F1121C50081BB43 /* BaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77912F1121C50081BB43 /* BaseTests.swift */; };
 		2BAE77962F11224D0081BB43 /* Interactable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77952F11224A0081BB43 /* Interactable.swift */; };
 		2BAE77982F11226C0081BB43 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77972F1122690081BB43 /* Interactor.swift */; };
 		2BAE779B2F1122920081BB43 /* RouterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE779A2F1122900081BB43 /* RouterError.swift */; };
 		2BAE779E2F1122BB0081BB43 /* Routable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE779D2F1122B90081BB43 /* Routable.swift */; };
 		2BAE77A02F1122F30081BB43 /* ViewableRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE779F2F1122F10081BB43 /* ViewableRouter.swift */; };
+		2BAE77A42F1125790081BB43 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77A32F1125720081BB43 /* Dependency.swift */; };
+		2BAE77A62F11257F0081BB43 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77A52F11257D0081BB43 /* Component.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,13 +33,14 @@
 		2BAE77722F1121BD0081BB43 /* Base.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Base.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE777D2F1121BD0081BB43 /* BaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE778C2F1121C20081BB43 /* Base.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Base.docc; sourceTree = "<group>"; };
-		2BAE778D2F1121C20081BB43 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		2BAE77912F1121C50081BB43 /* BaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTests.swift; sourceTree = "<group>"; };
 		2BAE77952F11224A0081BB43 /* Interactable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactable.swift; sourceTree = "<group>"; };
 		2BAE77972F1122690081BB43 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		2BAE779A2F1122900081BB43 /* RouterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterError.swift; sourceTree = "<group>"; };
 		2BAE779D2F1122B90081BB43 /* Routable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routable.swift; sourceTree = "<group>"; };
 		2BAE779F2F1122F10081BB43 /* ViewableRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewableRouter.swift; sourceTree = "<group>"; };
+		2BAE77A32F1125720081BB43 /* Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
+		2BAE77A52F11257D0081BB43 /* Component.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,10 +83,10 @@
 		2BAE778E2F1121C20081BB43 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE77A22F11256D0081BB43 /* Component */,
 				2BAE77992F1122830081BB43 /* Router */,
 				2BAE77942F1122450081BB43 /* Interactor */,
 				2BAE778C2F1121C20081BB43 /* Base.docc */,
-				2BAE778D2F1121C20081BB43 /* Base.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -114,6 +116,15 @@
 				2BAE779A2F1122900081BB43 /* RouterError.swift */,
 			);
 			path = Router;
+			sourceTree = "<group>";
+		};
+		2BAE77A22F11256D0081BB43 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE77A52F11257D0081BB43 /* Component.swift */,
+				2BAE77A32F1125720081BB43 /* Dependency.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,8 +245,9 @@
 				2BAE77A02F1122F30081BB43 /* ViewableRouter.swift in Sources */,
 				2BAE778F2F1121C20081BB43 /* Base.docc in Sources */,
 				2BAE77982F11226C0081BB43 /* Interactor.swift in Sources */,
+				2BAE77A62F11257F0081BB43 /* Component.swift in Sources */,
+				2BAE77A42F1125790081BB43 /* Dependency.swift in Sources */,
 				2BAE779B2F1122920081BB43 /* RouterError.swift in Sources */,
-				2BAE77902F1121C20081BB43 /* Base.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
