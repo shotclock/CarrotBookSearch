@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2BAE788D2F1233D90081BB43 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78832F1233D80081BB43 /* Domain.framework */; };
-		2BAE78A02F1233E20081BB43 /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE789E2F1233E10081BB43 /* DomainTests.swift */; };
 		2BAE78B82F1235E30081BB43 /* DomainInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78AC2F1234CA0081BB43 /* DomainInterface.framework */; };
 		2BAE78BD2F1236380081BB43 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78B62F1235D80081BB43 /* BookRepository.swift */; };
 		2BAE78C02F1236CB0081BB43 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78BF2F1236C80081BB43 /* BookDetail.swift */; };
@@ -46,7 +45,6 @@
 /* Begin PBXFileReference section */
 		2BAE78832F1233D80081BB43 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE788C2F1233D90081BB43 /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BAE789E2F1233E10081BB43 /* DomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTests.swift; sourceTree = "<group>"; };
 		2BAE78AC2F1234CA0081BB43 /* DomainInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE78B62F1235D80081BB43 /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
 		2BAE78BF2F1236C80081BB43 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
@@ -126,7 +124,6 @@
 			children = (
 				2BAE78F32F12B1CB0081BB43 /* Usecase */,
 				2BAE78F22F12B1C40081BB43 /* Repository */,
-				2BAE789E2F1233E10081BB43 /* DomainTests.swift */,
 			);
 			path = DomainTests;
 			sourceTree = "<group>";
@@ -409,7 +406,6 @@
 			files = (
 				2BAE78F92F12C0440081BB43 /* DefaultFetchBookDetailUsecaseTests.swift in Sources */,
 				2BAE78F72F12B8B10081BB43 /* DefaultSearchBookUsecaseTests.swift in Sources */,
-				2BAE78A02F1233E20081BB43 /* DomainTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

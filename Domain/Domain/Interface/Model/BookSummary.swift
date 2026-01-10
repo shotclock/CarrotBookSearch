@@ -12,14 +12,14 @@ public struct BookSummary: Hashable, Sendable {
     public let title: String
     public let subtitle: String
     public let priceText: String
-    public let imageURL: URL?
+    public let imageURL: String
     public let detailURLString: String
     
     public init(isbn13: String,
                 title: String,
                 subtitle: String,
                 priceText: String,
-                imageURL: URL?,
+                imageURL: String,
                 detailURLString: String) {
         self.isbn13 = isbn13
         self.title = title

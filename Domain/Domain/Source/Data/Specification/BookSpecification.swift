@@ -35,7 +35,7 @@ enum BookAPI {
                 let subtitle: String
                 let isbn13: String
                 let price: String
-                let image: URL
+                let image: String
                 let url: String
             }
         }
