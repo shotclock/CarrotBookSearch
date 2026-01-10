@@ -167,4 +167,75 @@ struct RequestSpecificationTests {
             #expect((error as? NetworkError) == nil)
         }
     }
+    
+    @Test("GET 요청 시 Query String 파라미터가 URL에 올바르게 인코딩되어 포함된다.")
+    func get_withQueryString_buildsCorrectURL() async throws {
+        // given
+        let specification = StubSpecification(
+            mode: .getQueryString,
+            parameter: .init(test1: "test Value1", test2: "testValue2")
+        )
+        
+        // when
+        let url = try #require(specification.urlBuilder.build())
+        let request = try specification.requestInfo.makeRequest(url: url)
+        
+        let builtURL = try #require(request.url)
+        let absolute = builtURL.absoluteString
+        
+        // then
+        #expect(absolute.hasPrefix(StubSpecification.url))
+        #expect(absolute.contains("test1=test%20Value1"))
+        #expect(absolute.contains("test2=testValue2"))
+        #expect(request.httpMethod == "GET")
+    }
+
+    @Test("GET 요청 시 Path Segment 방식으로 URL 경로가 올바르게 구성된다.")
+    func get_withPathSegment_buildsCorrectURL() async throws {
+        let test1 = "test Value1"
+        // given
+        let specification = StubSpecification(
+            mode: .getPathSegments,
+            parameter: .init(test1: test1, test2: "testValue2")
+        )
+
+        // when
+        let url = try #require(specification.urlBuilder.build())
+        let request = try specification.requestInfo.makeRequest(url: url)
+        
+        let builtURL = try #require(request.url)
+        let components = try #require(URLComponents(url: builtURL, resolvingAgainstBaseURL: false))
+        
+        // then
+        #expect(builtURL.absoluteString.hasPrefix(StubSpecification.url))
+        let decodedPath = components.path.removingPercentEncoding
+        #expect(decodedPath?.hasSuffix("/test Value1/testValue2") == true)
+        #expect(request.httpMethod == "GET")
+    }
+
+    @Test("POST 요청 시 JSON Body와 Content-Type 헤더가 올바르게 설정된다.")
+    func post_withJSONBody_buildsCorrectRequest() async throws {
+        // given
+        let specification = StubSpecification(
+            mode: .postJSON,
+            parameter: .init(test1: "test Value1", test2: "testValue2")
+        )
+
+        // when
+        let url = try #require(specification.urlBuilder.build())
+        let request = try specification.requestInfo.makeRequest(url: url)
+        
+        // then
+        #expect(request.httpMethod == "POST")
+
+        let contentType = request.value(forHTTPHeaderField: "Content-Type")
+        #expect(contentType == "application/json; charset=utf-8")
+        
+        let body = try #require(request.httpBody)
+        let json = try JSONSerialization.jsonObject(with: body) as? [String: Any]
+        let test1 = json?["test1"] as? String
+        let test2 = json?["test2"] as? String
+        #expect(test1 == "test Value1")
+        #expect(test2 == "testValue2")
+    }
 }
