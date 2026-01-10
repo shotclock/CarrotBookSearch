@@ -11,7 +11,8 @@ import BookListInterface
 
 // 뷰모델 -> 라우터
 protocol BookListRoutable: Routable {
-    func detach(_ router: Routable)
+    func attachBookDetail(with data: DummyBook)
+    func detachBookDetail()
 }
 
 // 뷰모델 -> 뷰 컨트롤러
@@ -45,6 +46,6 @@ extension BookListInteractor: BookListViewControllerListener {
     }
     
     func didSelectBook(_ book: DummyBook) {
-        print("셀 터치 완료 \(book)")
+        router?.attachBookDetail(with: book)
     }
 }

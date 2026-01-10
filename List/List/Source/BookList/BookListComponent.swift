@@ -13,4 +13,11 @@ public protocol BookListDependency: Dependency {
 }
 
 public final class BookListComponent: Component<BookListDependency> {
+    var bookDetailBuilder: BookDetailBuilder {
+        .init(dependency: self)
+    }
+}
+
+extension BookListComponent: BookDetailDependency {
+    
 }

@@ -24,7 +24,6 @@ struct DummyBook: Hashable {
 }
 
 final class BookListViewController: UIViewController,
-                                    BookListViewControllable,
                                     BookListViewControllerPresentable {
     // MARK: Definition
     struct UI {
@@ -174,5 +173,17 @@ extension BookListViewController: UITableViewDelegate {
         }
         
         listener?.didSelectBook(bookData)
+    }
+}
+
+// MARK: BookListViewControllable
+extension BookListViewController: BookListViewControllable {
+    func pushBookDetailViewController(_ viewController: UIViewController) {
+        navigationController?.pushViewController(viewController,
+                                                 animated: true)
+    }
+    
+    func popToBookListController() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }

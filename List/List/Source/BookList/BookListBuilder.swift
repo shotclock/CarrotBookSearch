@@ -8,6 +8,7 @@
 import Foundation
 import BookListInterface
 import Base
+import UIKit
 
 public final class BookListBuilder: BookListBuildable {
     private let component: BookListComponent
@@ -18,12 +19,15 @@ public final class BookListBuilder: BookListBuildable {
     
     public func build(withListener listener: BookListListener?) -> ViewableRoutable {
         let viewController = BookListViewController()
+        let navigationController = UINavigationController(rootViewController: viewController)
         let interactor = BookListInteractor(presenter: viewController)
         interactor.listener = listener
         
         return BookListRouter(
             interactor: interactor,
-            viewControllable: viewController
+            viewControllable: viewController,
+            navigationController: navigationController,
+            bookDetailBuilder: component.bookDetailBuilder
         )
     }
 }
