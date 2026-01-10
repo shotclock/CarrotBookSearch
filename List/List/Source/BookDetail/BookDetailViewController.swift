@@ -337,8 +337,8 @@ extension BookDetailViewController: BookDetailViewControllerPresentable {
         ].joined(separator: "\n")
         
         priceLabel.text = data.price
-        ratingLabel.text = data.rating
-        descriptionLabel.text = data.description
+        ratingLabel.text = "⭐️ \(data.rating) / 5"
+        descriptionLabel.text = data.description.htmlDecoded
         
         pdfLinksStackView.arrangedSubviews.forEach { view in
             pdfLinksStackView.removeArrangedSubview(view)

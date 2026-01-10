@@ -21,6 +21,7 @@
 		2BAE77C52F11309A0081BB43 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77C42F11309A0081BB43 /* RouterTests.swift */; };
 		2BAE784B2F115EBE0081BB43 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE784A2F115EB90081BB43 /* Array+Extension.swift */; };
 		2BAE785C2F1216970081BB43 /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE785B2F1216930081BB43 /* LaunchRouter.swift */; };
+		2BAE78EC2F12A77C0081BB43 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78EB2F12A7770081BB43 /* String+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		2BAE77C42F11309A0081BB43 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		2BAE784A2F115EB90081BB43 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		2BAE785B2F1216930081BB43 /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
+		2BAE78EB2F12A7770081BB43 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		2BAE78492F115EB60081BB43 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78EB2F12A7770081BB43 /* String+Extension.swift */,
 				2BAE784A2F115EB90081BB43 /* Array+Extension.swift */,
 			);
 			path = Extension;
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BAE77962F11224D0081BB43 /* Interactable.swift in Sources */,
+				2BAE78EC2F12A77C0081BB43 /* String+Extension.swift in Sources */,
 				2BAE779E2F1122BB0081BB43 /* Routable.swift in Sources */,
 				2BAE77A02F1122F30081BB43 /* ViewableRouter.swift in Sources */,
 				2BAE784B2F115EBE0081BB43 /* Array+Extension.swift in Sources */,
