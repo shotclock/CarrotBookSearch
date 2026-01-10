@@ -20,6 +20,7 @@
 		2BAE77C32F1130780081BB43 /* TestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77C22F1130770081BB43 /* TestRouter.swift */; };
 		2BAE77C52F11309A0081BB43 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE77C42F11309A0081BB43 /* RouterTests.swift */; };
 		2BAE784B2F115EBE0081BB43 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE784A2F115EB90081BB43 /* Array+Extension.swift */; };
+		2BAE785C2F1216970081BB43 /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE785B2F1216930081BB43 /* LaunchRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		2BAE77C22F1130770081BB43 /* TestRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestRouter.swift; sourceTree = "<group>"; };
 		2BAE77C42F11309A0081BB43 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		2BAE784A2F115EB90081BB43 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		2BAE785B2F1216930081BB43 /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 		2BAE77992F1122830081BB43 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE785B2F1216930081BB43 /* LaunchRouter.swift */,
 				2BAE779F2F1122F10081BB43 /* ViewableRouter.swift */,
 				2BAE779D2F1122B90081BB43 /* Routable.swift */,
 				2BAE779A2F1122900081BB43 /* RouterError.swift */,
@@ -272,6 +275,7 @@
 				2BAE778F2F1121C20081BB43 /* Base.docc in Sources */,
 				2BAE77982F11226C0081BB43 /* Interactor.swift in Sources */,
 				2BAE77A62F11257F0081BB43 /* Component.swift in Sources */,
+				2BAE785C2F1216970081BB43 /* LaunchRouter.swift in Sources */,
 				2BAE77A42F1125790081BB43 /* Dependency.swift in Sources */,
 				2BAE779B2F1122920081BB43 /* RouterError.swift in Sources */,
 			);
