@@ -19,6 +19,7 @@ protocol BookDetailViewControllerPresentable: AnyObject {
     var listener: BookDetailViewControllerListener? { get set }
     
     func updateBookDetail(to data: BookDetail)
+    func presentError(description: String)
 }
 
 final class BookDetailInteractor: Interactor<BookDetailViewControllerPresentable>, BookDetailInteractable {
@@ -60,8 +61,10 @@ final class BookDetailInteractor: Interactor<BookDetailViewControllerPresentable
                 let data = try await usecases.fetchBookDetailUsecase.execute(isbn13: isbn13)
                 
                 presenter?.updateBookDetail(to: data)
+            } catch let error as FetchBookDetailError {
+                presenter?.presentError(description: error.localizedDescription)
             } catch {
-                // error
+                // 네트워크 에러이므로 네트워크 에러 얼럿 표시 해야함
                 print(error.localizedDescription)
             }
         }

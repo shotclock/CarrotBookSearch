@@ -6,5 +6,8 @@
 //
 
 public enum FetchBookDetailError: Error {
+    case emptyISBN13
     case invalidISBN13
+    case invalidISBN13Format // 숫자만 지원
+    case networkError(error: Error)
 }

@@ -273,4 +273,17 @@ extension BookDetailViewController: BookDetailViewControllerPresentable {
         ratingLabel.text = data.rating
         descriptionLabel.text = data.desc
     }
+    
+    func presentError(description: String) {
+        let alert = UIAlertController(
+            title: "알림",
+            message: description,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(okAction)
+
+        present(alert, animated: true)
+    }
 }
