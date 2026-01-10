@@ -10,7 +10,7 @@ import Base
 
 // 뷰 컨트롤러 -> 뷰모델
 protocol BookDetailViewControllerListener: AnyObject {
-    
+    func didTapOpenLinkButton(with url: String)
 }
 
 final class BookDetailViewController: UIViewController,
@@ -190,6 +190,10 @@ final class BookDetailViewController: UIViewController,
             bodyStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -UI.BodyStack.padding.trailing),
             bodyStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -UI.BodyStack.padding.bottom)
         ])
+        
+        openLinkButton.addTarget(self,
+                                 action: #selector(didTapOpenLinkButton),
+                                 for: .touchUpInside)
     }
     
     private func makeHeaderTextStack() -> UIStackView {
@@ -225,5 +229,10 @@ final class BookDetailViewController: UIViewController,
     // MARK: Public methods
     
     // MARK: Private methods
+    @objc
+    private func didTapOpenLinkButton() {
+        // 테스트URL
+        listener?.didTapOpenLinkButton(with: "https://www.google.com")
+    }
 }
 

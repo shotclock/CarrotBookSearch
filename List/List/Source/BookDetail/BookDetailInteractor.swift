@@ -10,7 +10,7 @@ import Base
 
 // 뷰모델 -> 라우터
 protocol BookDetailRoutable: Routable {
-    func detach(_ router: Routable)
+    func routeToExternalURL(_ url: URL)
 }
 
 // 뷰모델 -> 뷰 컨트롤러
@@ -18,7 +18,7 @@ protocol BookDetailViewControllerPresentable: AnyObject {
     var listener: BookDetailViewControllerListener? { get set }
 }
 
-final class BookDetailInteractor: Interactor<BookDetailViewControllerPresentable>, BookDetailInteractable, BookDetailViewControllerListener {
+final class BookDetailInteractor: Interactor<BookDetailViewControllerPresentable>, BookDetailInteractable {
     weak var router: BookDetailRoutable?
     weak var listener: BookDetailListener?
     
@@ -34,5 +34,15 @@ final class BookDetailInteractor: Interactor<BookDetailViewControllerPresentable
     
     override func detached() {
         super.detached()
+    }
+}
+
+extension BookDetailInteractor: BookDetailViewControllerListener {
+    func didTapOpenLinkButton(with url: String) {
+        guard let url = URL(string: url) else {
+            return
+        }
+        
+        router?.routeToExternalURL(url)
     }
 }

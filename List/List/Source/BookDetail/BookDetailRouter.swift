@@ -32,7 +32,7 @@ final class BookDetailRouter: ViewableRouter<BookDetailInteractable, BookDetailV
 }
 
 extension BookDetailRouter: BookDetailRoutable {
-    func detach(_ router: Routable) {
-        
+    func routeToExternalURL(_ url: URL) {
+        UIApplication.shared.open(url)
     }
 }
