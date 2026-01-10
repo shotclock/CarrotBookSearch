@@ -35,6 +35,18 @@ final class BookDetailViewController: UIViewController,
             static let height: CGFloat = 1
         }
         
+        struct PDFSection {
+            static let spacing: CGFloat = 10
+        }
+        
+        struct PDFButton {
+            static let imagePdding: CGFloat = 8
+            static let contentInset: NSDirectionalEdgeInsets = .init(top: 6,
+                                                                     leading: 0,
+                                                                     bottom: 6,
+                                                                     trailing: 0)
+        }
+        
         static let stackSpacing: CGFloat = 6
     }
     
@@ -121,6 +133,25 @@ final class BookDetailViewController: UIViewController,
         return label
     }()
     
+    private let pdfSectionTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.text = "PDF"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+
+    private let pdfLinksStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = UI.PDFSection.spacing
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
+    }()
+    
     private let openLinkButton: UIButton = {
         var config = UIButton.Configuration.filled()
         config.title = "외부 브라우저로 열기"
@@ -183,6 +214,8 @@ final class BookDetailViewController: UIViewController,
             makeMetaDataStack(),
             makeDivider(),
             descriptionLabel,
+            makeDivider(),
+            makePDFSection(),
             openLinkButton
         ])
         bodyStack.axis = .vertical
@@ -228,6 +261,17 @@ final class BookDetailViewController: UIViewController,
         return stackView
     }
     
+    private func makePDFSection() -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: [pdfSectionTitleLabel,
+                                                       pdfLinksStackView])
+        stackView.axis = .vertical
+        stackView.spacing = UI.stackSpacing
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
+    }
+    
     private func makeDivider() -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -237,6 +281,29 @@ final class BookDetailViewController: UIViewController,
         ])
         
         return view
+    }
+    
+    private func makePDFButtons(entries: Array<(key: String, value: URL)>) -> [UIButton] {
+        entries.map { (title: String, link: URL) in
+            var config = UIButton.Configuration.plain()
+            config.title = title
+            config.image = UIImage(systemName: "doc.richtext")
+            config.imagePadding = UI.PDFButton.imagePdding
+            config.contentInsets = UI.PDFButton.contentInset
+
+            let button = UIButton(configuration: config)
+            button.contentHorizontalAlignment = .leading
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            let action = UIAction { [weak self] _ in
+                self?.listener?.didTapOpenLinkButton(with: link.absoluteString)
+            }
+            
+            button.addAction(action,
+                             for: .touchUpInside)
+            
+            return button
+        }
     }
     
     // MARK: Public methods
@@ -272,6 +339,25 @@ extension BookDetailViewController: BookDetailViewControllerPresentable {
         priceLabel.text = data.price
         ratingLabel.text = data.rating
         descriptionLabel.text = data.desc
+        
+        pdfLinksStackView.arrangedSubviews.forEach { view in
+            pdfLinksStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+        
+        let pdfEntries = (data.pdf ?? [:]).sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
+
+        let hasPDF = pdfEntries.isEmpty == false
+        pdfSectionTitleLabel.isHidden = !hasPDF
+        pdfLinksStackView.isHidden = !hasPDF
+        
+        guard hasPDF else {
+            return
+        }
+        
+        makePDFButtons(entries: pdfEntries).forEach {
+            pdfLinksStackView.addArrangedSubview($0)
+        }
     }
     
     func presentError(description: String) {
