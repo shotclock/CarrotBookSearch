@@ -7,43 +7,27 @@
 
 import UIKit
 
-public protocol LaunchRoutable: ViewableRoutable {
-    func launch() -> UIViewController
+public protocol LaunchRoutable: Routable {
+    var window: UIWindow? { get set }
     func launch(from window: UIWindow?)
 }
 
 public extension LaunchRoutable {
-    func launch() -> UIViewController {
-        interactor?.attached()
-        
-        return viewController
-    }
-    
     func launch(from window: UIWindow?) {
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
+        self.window = window
+        interactor?.attached()
     }
 }
 
-open class LaunchRouter<InteractorType, ViewControllable>: LaunchRoutable {
+open class LaunchRouter<InteractorType>: LaunchRoutable {
     public var intereactorType: InteractorType
-    public var navigationController: UINavigationController?
     public var childRouters: [any Routable] = []
-    
+    public var window: UIWindow?
     public var interactor: (any Interactable)? {
         intereactorType as? Interactable
     }
     
-    public var viewController: UIViewController
-    open var viewControllable: ViewControllable? {
-        viewController as? ViewControllable
-    }
-    
-    public init(interactor: InteractorType,
-                viewControllable: UIViewController,
-                navigationController: UINavigationController? = nil) {
-        self.viewController = UINavigationController(rootViewController: viewControllable)
-        self.navigationController = navigationController
+    public init(interactor: InteractorType) {
         self.intereactorType = interactor
     }
 }
