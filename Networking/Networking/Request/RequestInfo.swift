@@ -36,21 +36,10 @@ extension RequestInfo {
         if let parameters,
            let parameterData = try? JSONEncoder().encode(parameters) {
             switch method {
-            case .get:
-                let parameterDictionary = (try? JSONSerialization.jsonObject(with: parameterData) as? [String: Any]) ?? [:]
-                var components = URLComponents(url: url,
-                                               resolvingAgainstBaseURL: false)
-                
-                var queryItems: [URLQueryItem] = components?.queryItems ?? []
-                queryItems.append(
-                    contentsOf: parameterDictionary.map { (key: String, value: Any) in
-                        return URLQueryItem(name: key,
-                                            value: "\(value)")
-                    }
-                )
-                
-                components?.queryItems = queryItems
-                request.url = components?.url
+            case .get(let encoding):
+                request.url = configureGetQuery(url: url,
+                                                parameterData: parameterData,
+                                                by: encoding)
             case .post:
                 request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
                 request.httpBody = parameterData
@@ -68,5 +57,46 @@ extension RequestInfo {
             request.httpShouldHandleCookies = true
         }
         return request
+    }
+    
+    private func configureGetQuery(url: URL,
+                                   parameterData: Data,
+                                   by encoding: GETParameterEncoding) -> URL? {
+        var components = URLComponents(url: url,
+                                       resolvingAgainstBaseURL: false)
+        
+        switch encoding {
+        case .queryString:
+            let parameterDictionary = (try? JSONSerialization.jsonObject(with: parameterData) as? [String: Any]) ?? [:]
+            
+            var queryItems: [URLQueryItem] = components?.queryItems ?? []
+            queryItems.append(
+                contentsOf: parameterDictionary.map { (key: String, value: Any) in
+                    return URLQueryItem(name: key,
+                                        value: "\(value)")
+                }
+            )
+            
+            components?.queryItems = queryItems
+            
+            return components?.url
+        case .pathSegments(let order):
+            let segments = order.compactMap {
+                $0.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+            }
+            
+            let basePath = components?.path ?? url.path
+            
+            let newPath = segments.reduce(basePath) { partial, segment in
+                if partial.hasSuffix("/") {
+                    return partial + segment
+                } else {
+                    return partial + "/" + segment
+                }
+            }
+            components?.path = newPath
+            
+            return components?.url
+        }
     }
 }
