@@ -46,10 +46,10 @@ extension RootRouter: RootRoutable {
         
         do {
             try attachRouter(router)
-            window?.rootViewController = router.viewController
+            window?.rootViewController = router.navigationController
             bookListRouter = router
         } catch {
-            assertionFailure("attach 실패 \(error.localizedDescription)")
+            assertionFailure("attach 실패 \(#function) \(error.localizedDescription)")
         }
     }
 }
