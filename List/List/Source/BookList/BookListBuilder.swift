@@ -20,7 +20,8 @@ public final class BookListBuilder: BookListBuildable {
     public func build(withListener listener: BookListListener?) -> ViewableRoutable {
         let viewController = BookListViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
-        let interactor = BookListInteractor(presenter: viewController)
+        let interactor = BookListInteractor(presenter: viewController,
+                                            usecases: .init(searchBookUsecase: component.dependency.searchBookUsecase))
         interactor.listener = listener
         
         return BookListRouter(

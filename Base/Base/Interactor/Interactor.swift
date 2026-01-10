@@ -6,7 +6,7 @@
 //
 
 open class Interactor<Presenter>: Interactable {
-    var presenter: Presenter?
+    public var presenter: Presenter?
     
     public init(presenter: Presenter? = nil) {
         self.presenter = presenter

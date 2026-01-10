@@ -7,6 +7,7 @@
 
 import Foundation
 import Base
+import DomainInterface
 
 // 뷰모델 -> 라우터
 protocol BookDetailRoutable: Routable {
@@ -16,13 +17,27 @@ protocol BookDetailRoutable: Routable {
 // 뷰모델 -> 뷰 컨트롤러
 protocol BookDetailViewControllerPresentable: AnyObject {
     var listener: BookDetailViewControllerListener? { get set }
+    
+    func updateBookDetail(to data: BookDetail)
+    func presentError(description: String)
 }
 
 final class BookDetailInteractor: Interactor<BookDetailViewControllerPresentable>, BookDetailInteractable {
+    struct Usecase {
+        let fetchBookDetailUsecase: FetchBookDetailUsecase
+    }
+    
     weak var router: BookDetailRoutable?
     weak var listener: BookDetailListener?
     
-    override init(presenter: BookDetailViewControllerPresentable?) {
+    private let usecases: Usecase
+    private let isbn13: String
+    
+    init(presenter: BookDetailViewControllerPresentable?,
+         usecases: Usecase,
+         isbn13: String) {
+        self.isbn13 = isbn13
+        self.usecases = usecases
         super.init(presenter: presenter)
         
         presenter?.listener = self
@@ -30,10 +45,29 @@ final class BookDetailInteractor: Interactor<BookDetailViewControllerPresentable
     
     override func attached() {
         super.attached()
+        
+        fetchBookDetail()
     }
     
     override func detached() {
         super.detached()
+        
+        // TaskCancel 추가
+    }
+    
+    private func fetchBookDetail() {
+        Task { @MainActor in
+            do {
+                let data = try await usecases.fetchBookDetailUsecase.execute(isbn13: isbn13)
+                
+                presenter?.updateBookDetail(to: data)
+            } catch let error as FetchBookDetailError {
+                presenter?.presentError(description: error.localizedDescription)
+            } catch {
+                // 네트워크 에러이므로 네트워크 에러 얼럿 표시 해야함
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 

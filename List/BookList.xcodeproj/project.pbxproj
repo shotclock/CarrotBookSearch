@@ -29,6 +29,7 @@
 		2BAE78592F1161110081BB43 /* BookDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78512F1161110081BB43 /* BookDetailBuilder.swift */; };
 		2BAE785A2F1161110081BB43 /* BookDetailComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78522F1161110081BB43 /* BookDetailComponent.swift */; };
 		2BAE78782F122EEA0081BB43 /* NavigationPopObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78772F122EE60081BB43 /* NavigationPopObserver.swift */; };
+		2BAE78D32F123D510081BB43 /* DomainInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78D22F123D510081BB43 /* DomainInterface.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		2BAE78542F1161110081BB43 /* BookDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailRouter.swift; sourceTree = "<group>"; };
 		2BAE78552F1161110081BB43 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		2BAE78772F122EE60081BB43 /* NavigationPopObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPopObserver.swift; sourceTree = "<group>"; };
+		2BAE78D22F123D510081BB43 /* DomainInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78D32F123D510081BB43 /* DomainInterface.framework in Frameworks */,
 				2BAE78212F113A3F0081BB43 /* BookListInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +188,7 @@
 		2BAE78202F113A3F0081BB43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78D22F123D510081BB43 /* DomainInterface.framework */,
 				2BAE782A2F113A550081BB43 /* Base.framework */,
 				2BAE78262F113A470081BB43 /* Base.framework */,
 			);

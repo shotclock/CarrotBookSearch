@@ -7,6 +7,7 @@
 
 import UIKit
 import Base
+import DomainInterface
 
 // 뷰 컨트롤러 -> 뷰모델
 protocol BookDetailViewControllerListener: AnyObject {
@@ -14,8 +15,7 @@ protocol BookDetailViewControllerListener: AnyObject {
 }
 
 final class BookDetailViewController: UIViewController,
-                                      BookDetailViewControllable,
-                                      BookDetailViewControllerPresentable {
+                                      BookDetailViewControllable {
     // MARK: Definition
     struct UI {
         struct CoverImageView {
@@ -35,11 +35,24 @@ final class BookDetailViewController: UIViewController,
             static let height: CGFloat = 1
         }
         
+        struct PDFSection {
+            static let spacing: CGFloat = 10
+        }
+        
+        struct PDFButton {
+            static let imagePdding: CGFloat = 8
+            static let contentInset: NSDirectionalEdgeInsets = .init(top: 6,
+                                                                     leading: 0,
+                                                                     bottom: 6,
+                                                                     trailing: 0)
+        }
+        
         static let stackSpacing: CGFloat = 6
     }
     
     // MARK: Properties
     weak var listener: BookDetailViewControllerListener?
+    private var bookData: BookDetail?
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -75,6 +88,15 @@ final class BookDetailViewController: UIViewController,
         return label
     }()
     
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .title3)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
     private let metaDataLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .subheadline)
@@ -102,13 +124,32 @@ final class BookDetailViewController: UIViewController,
         return label
     }()
     
-    private let descLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
         label.numberOfLines = 0
         label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
+    }()
+    
+    private let pdfSectionTitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .headline)
+        label.text = "PDF"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+
+    private let pdfLinksStackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = UI.PDFSection.spacing
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
     }()
     
     private let openLinkButton: UIButton = {
@@ -172,7 +213,9 @@ final class BookDetailViewController: UIViewController,
             makeDivider(),
             makeMetaDataStack(),
             makeDivider(),
-            descLabel,
+            descriptionLabel,
+            makeDivider(),
+            makePDFSection(),
             openLinkButton
         ])
         bodyStack.axis = .vertical
@@ -197,7 +240,10 @@ final class BookDetailViewController: UIViewController,
     }
     
     private func makeHeaderTextStack() -> UIStackView {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, priceLabel, ratingLabel])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel,
+                                                       subtitleLabel,
+                                                       priceLabel,
+                                                       ratingLabel])
         stackView.axis = .vertical
         stackView.spacing = UI.stackSpacing
         stackView.alignment = .leading
@@ -215,6 +261,17 @@ final class BookDetailViewController: UIViewController,
         return stackView
     }
     
+    private func makePDFSection() -> UIStackView {
+        let stackView = UIStackView(arrangedSubviews: [pdfSectionTitleLabel,
+                                                       pdfLinksStackView])
+        stackView.axis = .vertical
+        stackView.spacing = UI.stackSpacing
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return stackView
+    }
+    
     private func makeDivider() -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -226,13 +283,93 @@ final class BookDetailViewController: UIViewController,
         return view
     }
     
+    private func makePDFButtons(entries: Array<(key: String, value: String)>) -> [UIButton] {
+        entries.map { (title: String, link: String) in
+            var config = UIButton.Configuration.plain()
+            config.title = title
+            config.image = UIImage(systemName: "doc.richtext")
+            config.imagePadding = UI.PDFButton.imagePdding
+            config.contentInsets = UI.PDFButton.contentInset
+
+            let button = UIButton(configuration: config)
+            button.contentHorizontalAlignment = .leading
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            let action = UIAction { [weak self] _ in
+                self?.listener?.didTapOpenLinkButton(with: link)
+            }
+            
+            button.addAction(action,
+                             for: .touchUpInside)
+            
+            return button
+        }
+    }
+    
     // MARK: Public methods
     
     // MARK: Private methods
     @objc
     private func didTapOpenLinkButton() {
-        // 테스트URL
-        listener?.didTapOpenLinkButton(with: "https://www.google.com")
+        guard let url = bookData?.linkURL else {
+            return
+        }
+        
+        listener?.didTapOpenLinkButton(with: url)
     }
 }
 
+// MARK: BookDetailViewControllerPresentable
+extension BookDetailViewController: BookDetailViewControllerPresentable {
+    func updateBookDetail(to data: BookDetail) {
+        bookData = data
+        
+        titleLabel.text = data.title
+        subtitleLabel.text = data.subtitle.isEmpty ? nil : data.subtitle
+        metaDataLabel.text = [
+            "Authors: \(data.authors)",
+            "Publisher: \(data.publisher)",
+            "Language: \(data.language)",
+            "ISBN-10: \(data.isbn10)",
+            "ISBN-13: \(data.isbn13)",
+            "Pages: \(data.pages)",
+            "Year: \(data.publishYear)"
+        ].joined(separator: "\n")
+        
+        priceLabel.text = data.price
+        ratingLabel.text = "⭐️ \(data.rating) / 5"
+        descriptionLabel.text = data.description.htmlDecoded
+        
+        pdfLinksStackView.arrangedSubviews.forEach { view in
+            pdfLinksStackView.removeArrangedSubview(view)
+            view.removeFromSuperview()
+        }
+        
+        let pdfEntries = (data.pdfData ?? [:]).sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
+
+        let hasPDF = pdfEntries.isEmpty == false
+        pdfSectionTitleLabel.isHidden = !hasPDF
+        pdfLinksStackView.isHidden = !hasPDF
+        
+        guard hasPDF else {
+            return
+        }
+        
+        makePDFButtons(entries: pdfEntries).forEach {
+            pdfLinksStackView.addArrangedSubview($0)
+        }
+    }
+    
+    func presentError(description: String) {
+        let alert = UIAlertController(
+            title: "알림",
+            message: description,
+            preferredStyle: .alert
+        )
+
+        let okAction = UIAlertAction(title: "확인", style: .default)
+        alert.addAction(okAction)
+
+        present(alert, animated: true)
+    }
+}

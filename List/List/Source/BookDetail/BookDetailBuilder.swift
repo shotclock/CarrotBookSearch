@@ -15,9 +15,12 @@ public final class BookDetailBuilder: BookDetailBuildable {
         self.component = .init(dependency: dependency)
     }
     
-    public func build(withListener listener: BookDetailListener?) -> ViewableRoutable {
+    public func build(withListener listener: BookDetailListener?,
+                      isbn13: String) -> ViewableRoutable {
         let viewController = BookDetailViewController()
-        let interactor = BookDetailInteractor(presenter: viewController)
+        let interactor = BookDetailInteractor(presenter: viewController,
+                                              usecases: .init(fetchBookDetailUsecase: component.dependency.fetchBookDetailUsecase),
+                                              isbn13: isbn13)
         interactor.listener = listener
         
         return BookDetailRouter(

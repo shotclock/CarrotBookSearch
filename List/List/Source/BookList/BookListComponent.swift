@@ -7,9 +7,11 @@
 
 import Base
 import BookListInterface
+import DomainInterface
 
 public protocol BookListDependency: Dependency {
-    
+    var searchBookUsecase: SearchBookUsecase { get }
+    var fetchBookDetailUsecase: FetchBookDetailUsecase { get }
 }
 
 public final class BookListComponent: Component<BookListDependency> {
@@ -19,5 +21,7 @@ public final class BookListComponent: Component<BookListDependency> {
 }
 
 extension BookListComponent: BookDetailDependency {
-    
+    public var fetchBookDetailUsecase: FetchBookDetailUsecase {
+        dependency.fetchBookDetailUsecase
+    }
 }

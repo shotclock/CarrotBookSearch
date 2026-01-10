@@ -6,9 +6,10 @@
 //
 
 import Base
+import DomainInterface
 
 public protocol BookDetailDependency: Dependency {
-    
+    var fetchBookDetailUsecase: FetchBookDetailUsecase { get }
 }
 
 public final class BookDetailComponent: Component<BookDetailDependency> {
