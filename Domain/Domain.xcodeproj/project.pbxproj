@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		2BAE788D2F1233D90081BB43 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78832F1233D80081BB43 /* Domain.framework */; };
 		2BAE78A02F1233E20081BB43 /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE789E2F1233E10081BB43 /* DomainTests.swift */; };
+		2BAE78B82F1235E30081BB43 /* DomainInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78AC2F1234CA0081BB43 /* DomainInterface.framework */; };
+		2BAE78BD2F1236380081BB43 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78B62F1235D80081BB43 /* BookRepository.swift */; };
+		2BAE78C02F1236CB0081BB43 /* BookDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78BF2F1236C80081BB43 /* BookDetail.swift */; };
+		2BAE78C22F1237060081BB43 /* BookSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78C12F1237020081BB43 /* BookSummary.swift */; };
+		2BAE78C82F1237800081BB43 /* DefaultBookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78C62F12377A0081BB43 /* DefaultBookRepository.swift */; };
+		2BAE78CC2F1238820081BB43 /* BookSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78CB2F12387E0081BB43 /* BookSpecification.swift */; };
+		2BAE78CE2F12388F0081BB43 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78CD2F12388F0081BB43 /* Networking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -19,6 +26,13 @@
 			remoteGlobalIDString = 2BAE78822F1233D80081BB43;
 			remoteInfo = Domain;
 		};
+		2BAE78BA2F1235E30081BB43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BAE787A2F1233D80081BB43 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BAE78AB2F1234CA0081BB43;
+			remoteInfo = DomainInterface;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +40,12 @@
 		2BAE788C2F1233D90081BB43 /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE789E2F1233E10081BB43 /* DomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTests.swift; sourceTree = "<group>"; };
 		2BAE78AC2F1234CA0081BB43 /* DomainInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DomainInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAE78B62F1235D80081BB43 /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
+		2BAE78BF2F1236C80081BB43 /* BookDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetail.swift; sourceTree = "<group>"; };
+		2BAE78C12F1237020081BB43 /* BookSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSummary.swift; sourceTree = "<group>"; };
+		2BAE78C62F12377A0081BB43 /* DefaultBookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultBookRepository.swift; sourceTree = "<group>"; };
+		2BAE78CB2F12387E0081BB43 /* BookSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookSpecification.swift; sourceTree = "<group>"; };
+		2BAE78CD2F12388F0081BB43 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78CE2F12388F0081BB43 /* Networking.framework in Frameworks */,
+				2BAE78B82F1235E30081BB43 /* DomainInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +81,7 @@
 			children = (
 				2BAE789C2F1233DE0081BB43 /* Domain */,
 				2BAE789F2F1233E10081BB43 /* DomainTests */,
+				2BAE78B72F1235E30081BB43 /* Frameworks */,
 				2BAE78842F1233D80081BB43 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -93,6 +116,7 @@
 		2BAE78A12F1234100081BB43 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78BE2F1236BB0081BB43 /* Model */,
 				2BAE78A62F1234330081BB43 /* Repository */,
 				2BAE78A52F12342C0081BB43 /* Usecase */,
 			);
@@ -102,6 +126,7 @@
 		2BAE78A22F12341D0081BB43 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78C92F12386A0081BB43 /* Data */,
 				2BAE78A42F1234280081BB43 /* Repository */,
 				2BAE78A32F1234220081BB43 /* Usecase */,
 			);
@@ -118,6 +143,7 @@
 		2BAE78A42F1234280081BB43 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78C62F12377A0081BB43 /* DefaultBookRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -132,8 +158,42 @@
 		2BAE78A62F1234330081BB43 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78B62F1235D80081BB43 /* BookRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		2BAE78B72F1235E30081BB43 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE78CD2F12388F0081BB43 /* Networking.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2BAE78BE2F1236BB0081BB43 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE78C12F1237020081BB43 /* BookSummary.swift */,
+				2BAE78BF2F1236C80081BB43 /* BookDetail.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2BAE78C92F12386A0081BB43 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE78CA2F12386F0081BB43 /* Specification */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		2BAE78CA2F12386F0081BB43 /* Specification */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE78CB2F12387E0081BB43 /* BookSpecification.swift */,
+			);
+			path = Specification;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +228,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2BAE78BB2F1235E30081BB43 /* PBXTargetDependency */,
 			);
 			name = Domain;
 			packageProductDependencies = (
@@ -287,6 +348,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78CC2F1238820081BB43 /* BookSpecification.swift in Sources */,
+				2BAE78C82F1237800081BB43 /* DefaultBookRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +365,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78BD2F1236380081BB43 /* BookRepository.swift in Sources */,
+				2BAE78C22F1237060081BB43 /* BookSummary.swift in Sources */,
+				2BAE78C02F1236CB0081BB43 /* BookDetail.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +378,11 @@
 			isa = PBXTargetDependency;
 			target = 2BAE78822F1233D80081BB43 /* Domain */;
 			targetProxy = 2BAE788E2F1233D90081BB43 /* PBXContainerItemProxy */;
+		};
+		2BAE78BB2F1235E30081BB43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BAE78AB2F1234CA0081BB43 /* DomainInterface */;
+			targetProxy = 2BAE78BA2F1235E30081BB43 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
