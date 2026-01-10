@@ -13,11 +13,11 @@ public final class DefaultBookRepository: BookRepository {
     }
     
     public func searchBooks(query: String,
-                            page: Int) async throws -> [DomainInterface.BookSummary] {
+                            page: Int) async throws -> (total: Int, books: [DomainInterface.BookSummary]) {
         let response = try await BookAPI.Search(pathParameter: .init(keyword: query,
                                                                      page: page)).request()
         
-        return response
+        let books = response
             .books
             .map {
                 BookSummary(isbn13: $0.isbn13,
@@ -27,6 +27,8 @@ public final class DefaultBookRepository: BookRepository {
                             imageURL: $0.image,
                             detailURLString: $0.url)
         }
+        
+        return (Int(response.total) ?? .zero, books)
     }
     
     public func fetchBookDetail(isbn13: String) async throws -> DomainInterface.BookDetail {

@@ -53,7 +53,8 @@ enum BookAPI {
         
         init(pathParameter: Path) {
             self.requestInfo = .init(method: .get(encoding: .pathSegments(order: [pathParameter.keyword,
-                                                                                  "\(pathParameter.page)"])))
+                                                                                  "\(pathParameter.page)"])),
+                                     parameters: pathParameter)
             self.urlBuilder = BookAPI.urlBuilder.addPath("/1.0/search")
         }
     }
@@ -90,6 +91,11 @@ enum BookAPI {
             }
             
             var errorResponse: Response?
+            
+            var errorDescription: String? {
+                return errorResponse?.error
+            }
+            
             init(errorResponse: Response?) {
                 self.errorResponse = errorResponse
             }

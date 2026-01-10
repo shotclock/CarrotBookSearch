@@ -7,6 +7,6 @@
 
 public protocol BookRepository {
     func searchBooks(query: String,
-                     page: Int) async throws -> [BookSummary]
+                     page: Int) async throws -> (total: Int, books: [DomainInterface.BookSummary])
     func fetchBookDetail(isbn13: String) async throws -> BookDetail
 }
