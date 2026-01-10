@@ -7,12 +7,6 @@
 
 import DomainInterface
 
-public enum SearchBookError: Error {
-    case emptyKeyword
-    case invalidPage
-    case apiError(message: String)
-}
-
 public class DefaultSearchBookUsecase: SearchBookUsecase {
     private let repository: BookRepository
     

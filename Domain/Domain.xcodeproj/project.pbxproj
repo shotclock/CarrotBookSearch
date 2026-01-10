@@ -18,6 +18,7 @@
 		2BAE78CE2F12388F0081BB43 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78CD2F12388F0081BB43 /* Networking.framework */; };
 		2BAE78DD2F1249A50081BB43 /* SearchBookUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78DC2F1249A00081BB43 /* SearchBookUsecase.swift */; };
 		2BAE78E12F124A1D0081BB43 /* DefaultSearchBookUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78E02F124A160081BB43 /* DefaultSearchBookUsecase.swift */; };
+		2BAE78E42F125A140081BB43 /* SearchBookError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78E32F125A110081BB43 /* SearchBookError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		2BAE78CD2F12388F0081BB43 /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2BAE78DC2F1249A00081BB43 /* SearchBookUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookUsecase.swift; sourceTree = "<group>"; };
 		2BAE78E02F124A160081BB43 /* DefaultSearchBookUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchBookUsecase.swift; sourceTree = "<group>"; };
+		2BAE78E32F125A110081BB43 /* SearchBookError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		2BAE78A12F1234100081BB43 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78E22F125A070081BB43 /* Error */,
 				2BAE78BE2F1236BB0081BB43 /* Model */,
 				2BAE78A62F1234330081BB43 /* Repository */,
 				2BAE78A52F12342C0081BB43 /* Usecase */,
@@ -200,6 +203,14 @@
 				2BAE78CB2F12387E0081BB43 /* BookSpecification.swift */,
 			);
 			path = Specification;
+			sourceTree = "<group>";
+		};
+		2BAE78E22F125A070081BB43 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE78E32F125A110081BB43 /* SearchBookError.swift */,
+			);
+			path = Error;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78E42F125A140081BB43 /* SearchBookError.swift in Sources */,
 				2BAE78DD2F1249A50081BB43 /* SearchBookUsecase.swift in Sources */,
 				2BAE78BD2F1236380081BB43 /* BookRepository.swift in Sources */,
 				2BAE78C22F1237060081BB43 /* BookSummary.swift in Sources */,
