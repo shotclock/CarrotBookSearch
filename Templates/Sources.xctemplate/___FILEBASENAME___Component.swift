@@ -1,6 +1,6 @@
 //___FILEHEADER___
 
-import ___VARIABLE_moduleName:identifier___Interface
+import Base
 
 public protocol ___VARIABLE_productName:identifier___Dependency: Dependency {
     

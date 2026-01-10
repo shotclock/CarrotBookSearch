@@ -5,7 +5,7 @@
 //  Created by 이상호 on 1/9/26.
 //
 
-import Foundation
+import UIKit
 
 public protocol Routable: AnyObject {
     /// 현재 본인의 영역에서 가지고 있는 다른 영역의 라우터를 담는 배열입니다.
@@ -38,7 +38,10 @@ public extension Routable {
         router.interactor?.detached()
     }
 }
- 
+
 public protocol ViewableRoutable: Routable {
-    
+    /// 현재 영역이 가지고 있는 베이스 뷰 컨트롤러입니다.
+    var viewController: UIViewController { get }
+    /// 현재 영역이 속해있는 네비게이션 뷰 컨트롤러 입니다.
+    var navigationController: UINavigationController? { get }
 }

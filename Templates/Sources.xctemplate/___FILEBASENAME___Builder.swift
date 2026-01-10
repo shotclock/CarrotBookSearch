@@ -7,8 +7,8 @@ import Base
 public final class ___FILEBASENAMEASIDENTIFIER___: ___VARIABLE_productName:identifier___Buildable {
     private let component: ___VARIABLE_productName:identifier___Component
     
-    public init(component: ___VARIABLE_productName:identifier___Component) {
-        self.component = component
+    public init(dependency: ___VARIABLE_productName:identifier___Dependency) {
+        self.component = .init(dependency: dependency)
     }
     
     public func build(withListener listener: ___VARIABLE_productName:identifier___Listener?) -> ViewableRoutable {

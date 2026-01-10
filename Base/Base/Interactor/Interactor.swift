@@ -5,18 +5,18 @@
 //  Created by 이상호 on 1/9/26.
 //
 
-public class Interactor<Presenter>: Interactable {
+open class Interactor<Presenter>: Interactable {
     var presenter: Presenter?
     
-    init(presenter: Presenter? = nil) {
+    public init(presenter: Presenter? = nil) {
         self.presenter = presenter
     }
     
-    public func attached() {
+    open func attached() {
         
     }
     
-    public func detached() {
+    open func detached() {
         presenter = nil
     }
 }
