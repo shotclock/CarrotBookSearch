@@ -19,6 +19,7 @@ public final class BookDetailBuilder: BookDetailBuildable {
                       isbn13: String) -> ViewableRoutable {
         let viewController = BookDetailViewController()
         let interactor = BookDetailInteractor(presenter: viewController,
+                                              usecases: .init(fetchBookDetailUsecase: component.dependency.fetchBookDetailUsecase),
                                               isbn13: isbn13)
         interactor.listener = listener
         

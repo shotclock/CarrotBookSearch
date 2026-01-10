@@ -31,17 +31,23 @@ public final class DefaultBookRepository: BookRepository {
         return (Int(response.total) ?? .zero, books)
     }
     
-    public func fetchBookDetail(isbn13: String) async throws -> DomainInterface.BookDetail {
+    public func fetchBookDetail(isbn13: String) async throws -> BookDetail {
         let response = try await BookAPI.Detail(pathParameter: .init(isbn13: isbn13)).request()
         
-        return .init(isbn13: response.isbn13,
-                     title: response.title,
+        return .init(title: response.title,
                      subtitle: response.subtitle,
                      authors: response.authors,
                      publisher: response.publisher,
+                     language: response.language,
+                     isbn10: response.isbn10,
+                     isbn13: response.isbn13,
+                     pages: response.pages,
+                     year: response.year,
+                     rating: response.rating,
                      desc: response.desc,
-                     priceText: response.price,
-                     imageURL: response.image,
-                     linkURL: response.url)
+                     price: response.price,
+                     image: response.image,
+                     url: response.url,
+                     pdf: response.pdf)
     }
 }

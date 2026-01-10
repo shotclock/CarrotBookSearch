@@ -25,6 +25,10 @@ public final class RootComponent: Component<EmptyDependency> {
 }
 
 extension RootComponent: BookListDependency {
+    public var fetchBookDetailUsecase: FetchBookDetailUsecase {
+        DefaultFetchBookDetailUsecase(repository: DefaultBookRepository())
+    }
+    
     public var searchBookUsecase: SearchBookUsecase {
         DefaultSearchBookUsecase(repository: DefaultBookRepository())
     }

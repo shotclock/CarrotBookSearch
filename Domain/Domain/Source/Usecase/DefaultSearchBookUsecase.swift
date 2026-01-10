@@ -7,7 +7,7 @@
 
 import DomainInterface
 
-public class DefaultSearchBookUsecase: SearchBookUsecase {
+public final class DefaultSearchBookUsecase: SearchBookUsecase {
     private let repository: BookRepository
     
     private var currentKeyword: String?

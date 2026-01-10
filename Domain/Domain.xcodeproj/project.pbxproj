@@ -19,6 +19,9 @@
 		2BAE78DD2F1249A50081BB43 /* SearchBookUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78DC2F1249A00081BB43 /* SearchBookUsecase.swift */; };
 		2BAE78E12F124A1D0081BB43 /* DefaultSearchBookUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78E02F124A160081BB43 /* DefaultSearchBookUsecase.swift */; };
 		2BAE78E42F125A140081BB43 /* SearchBookError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78E32F125A110081BB43 /* SearchBookError.swift */; };
+		2BAE78E62F1282230081BB43 /* FetchBookDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78E52F1282210081BB43 /* FetchBookDetailUsecase.swift */; };
+		2BAE78E82F1282470081BB43 /* DefaultFetchBookDetailUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78E72F12823B0081BB43 /* DefaultFetchBookDetailUsecase.swift */; };
+		2BAE78EA2F1282DD0081BB43 /* FetchBookDetailError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78E92F1282D70081BB43 /* FetchBookDetailError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		2BAE78DC2F1249A00081BB43 /* SearchBookUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookUsecase.swift; sourceTree = "<group>"; };
 		2BAE78E02F124A160081BB43 /* DefaultSearchBookUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultSearchBookUsecase.swift; sourceTree = "<group>"; };
 		2BAE78E32F125A110081BB43 /* SearchBookError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookError.swift; sourceTree = "<group>"; };
+		2BAE78E52F1282210081BB43 /* FetchBookDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBookDetailUsecase.swift; sourceTree = "<group>"; };
+		2BAE78E72F12823B0081BB43 /* DefaultFetchBookDetailUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultFetchBookDetailUsecase.swift; sourceTree = "<group>"; };
+		2BAE78E92F1282D70081BB43 /* FetchBookDetailError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBookDetailError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 		2BAE78A32F1234220081BB43 /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78E72F12823B0081BB43 /* DefaultFetchBookDetailUsecase.swift */,
 				2BAE78E02F124A160081BB43 /* DefaultSearchBookUsecase.swift */,
 			);
 			path = Usecase;
@@ -159,6 +166,7 @@
 		2BAE78A52F12342C0081BB43 /* Usecase */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78E52F1282210081BB43 /* FetchBookDetailUsecase.swift */,
 				2BAE78DC2F1249A00081BB43 /* SearchBookUsecase.swift */,
 			);
 			path = Usecase;
@@ -208,6 +216,7 @@
 		2BAE78E22F125A070081BB43 /* Error */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78E92F1282D70081BB43 /* FetchBookDetailError.swift */,
 				2BAE78E32F125A110081BB43 /* SearchBookError.swift */,
 			);
 			path = Error;
@@ -365,6 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78E82F1282470081BB43 /* DefaultFetchBookDetailUsecase.swift in Sources */,
 				2BAE78CC2F1238820081BB43 /* BookSpecification.swift in Sources */,
 				2BAE78E12F124A1D0081BB43 /* DefaultSearchBookUsecase.swift in Sources */,
 				2BAE78C82F1237800081BB43 /* DefaultBookRepository.swift in Sources */,
@@ -383,9 +393,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78E62F1282230081BB43 /* FetchBookDetailUsecase.swift in Sources */,
 				2BAE78E42F125A140081BB43 /* SearchBookError.swift in Sources */,
 				2BAE78DD2F1249A50081BB43 /* SearchBookUsecase.swift in Sources */,
 				2BAE78BD2F1236380081BB43 /* BookRepository.swift in Sources */,
+				2BAE78EA2F1282DD0081BB43 /* FetchBookDetailError.swift in Sources */,
 				2BAE78C22F1237060081BB43 /* BookSummary.swift in Sources */,
 				2BAE78C02F1236CB0081BB43 /* BookDetail.swift in Sources */,
 			);

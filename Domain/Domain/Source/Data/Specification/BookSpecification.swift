@@ -70,7 +70,7 @@ enum BookAPI {
         struct Response: Decodable {
             let error: String
             let title: String
-            let subtitle: String?
+            let subtitle: String
             let authors: String
             let publisher: String
             let language: String
@@ -78,11 +78,12 @@ enum BookAPI {
             let isbn13: String
             let pages: String
             let year: String
-            let rating: String?
+            let rating: String
             let desc: String
             let price: String
             let image: URL
             let url: URL
+            let pdf: [String: URL]?
         }
         
         struct ErrorResponse: APIErrorDefinition {
@@ -102,7 +103,8 @@ enum BookAPI {
         }
         
         init(pathParameter: Path) {
-            self.requestInfo = .init(method: .get(encoding: .pathSegments(order: [pathParameter.isbn13])))
+            self.requestInfo = .init(method: .get(encoding: .pathSegments(order: [pathParameter.isbn13])),
+                                     parameters: pathParameter)
             self.urlBuilder = BookAPI.urlBuilder.addPath("/1.0/books")
         }
     }

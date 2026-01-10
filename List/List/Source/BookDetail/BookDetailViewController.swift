@@ -7,6 +7,7 @@
 
 import UIKit
 import Base
+import DomainInterface
 
 // 뷰 컨트롤러 -> 뷰모델
 protocol BookDetailViewControllerListener: AnyObject {
@@ -14,8 +15,7 @@ protocol BookDetailViewControllerListener: AnyObject {
 }
 
 final class BookDetailViewController: UIViewController,
-                                      BookDetailViewControllable,
-                                      BookDetailViewControllerPresentable {
+                                      BookDetailViewControllable {
     // MARK: Definition
     struct UI {
         struct CoverImageView {
@@ -40,6 +40,7 @@ final class BookDetailViewController: UIViewController,
     
     // MARK: Properties
     weak var listener: BookDetailViewControllerListener?
+    private var bookData: BookDetail?
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -75,6 +76,15 @@ final class BookDetailViewController: UIViewController,
         return label
     }()
     
+    private let subtitleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .title3)
+        label.numberOfLines = 0
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        return label
+    }()
+    
     private let metaDataLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .subheadline)
@@ -102,7 +112,7 @@ final class BookDetailViewController: UIViewController,
         return label
     }()
     
-    private let descLabel: UILabel = {
+    private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .body)
         label.numberOfLines = 0
@@ -172,7 +182,7 @@ final class BookDetailViewController: UIViewController,
             makeDivider(),
             makeMetaDataStack(),
             makeDivider(),
-            descLabel,
+            descriptionLabel,
             openLinkButton
         ])
         bodyStack.axis = .vertical
@@ -197,7 +207,10 @@ final class BookDetailViewController: UIViewController,
     }
     
     private func makeHeaderTextStack() -> UIStackView {
-        let stackView = UIStackView(arrangedSubviews: [titleLabel, priceLabel, ratingLabel])
+        let stackView = UIStackView(arrangedSubviews: [titleLabel,
+                                                       subtitleLabel,
+                                                       priceLabel,
+                                                       ratingLabel])
         stackView.axis = .vertical
         stackView.spacing = UI.stackSpacing
         stackView.alignment = .leading
@@ -231,8 +244,33 @@ final class BookDetailViewController: UIViewController,
     // MARK: Private methods
     @objc
     private func didTapOpenLinkButton() {
-        // 테스트URL
-        listener?.didTapOpenLinkButton(with: "https://www.google.com")
+        guard let url = bookData?.url.absoluteString else {
+            return
+        }
+        
+        listener?.didTapOpenLinkButton(with: url)
     }
 }
 
+// MARK: BookDetailViewControllerPresentable
+extension BookDetailViewController: BookDetailViewControllerPresentable {
+    func updateBookDetail(to data: BookDetail) {
+        bookData = data
+        
+        titleLabel.text = data.title
+        subtitleLabel.text = data.subtitle.isEmpty ? nil : data.subtitle
+        metaDataLabel.text = [
+            "Authors: \(data.authors)",
+            "Publisher: \(data.publisher)",
+            "Language: \(data.language)",
+            "ISBN-10: \(data.isbn10)",
+            "ISBN-13: \(data.isbn13)",
+            "Pages: \(data.pages)",
+            "Year: \(data.year)"
+        ].joined(separator: "\n")
+        
+        priceLabel.text = data.price
+        ratingLabel.text = data.rating
+        descriptionLabel.text = data.desc
+    }
+}
