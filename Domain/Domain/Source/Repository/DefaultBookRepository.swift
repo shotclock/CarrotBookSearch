@@ -5,17 +5,20 @@
 //  Created by 이상호 on 1/10/26.
 //
 
+import Foundation
 import DomainInterface
 
 public final class DefaultBookRepository: BookRepository {
-    public init() {
-        
+    private let sessionConfiguration: URLSessionConfiguration
+    
+    public init(sessionConfiguration: URLSessionConfiguration = .default) {
+        self.sessionConfiguration = sessionConfiguration
     }
     
     public func searchBooks(query: String,
                             page: Int) async throws -> (total: Int, books: [DomainInterface.BookSummary]) {
         let response = try await BookAPI.Search(pathParameter: .init(keyword: query,
-                                                                     page: page)).request()
+                                                                     page: page)).request(configuration: sessionConfiguration)
         
         let books = response
             .books
@@ -32,7 +35,7 @@ public final class DefaultBookRepository: BookRepository {
     }
     
     public func fetchBookDetail(isbn13: String) async throws -> BookDetail {
-        let response = try await BookAPI.Detail(pathParameter: .init(isbn13: isbn13)).request()
+        let response = try await BookAPI.Detail(pathParameter: .init(isbn13: isbn13)).request(configuration: sessionConfiguration)
         
         return .init(title: response.title,
                      subtitle: response.subtitle,

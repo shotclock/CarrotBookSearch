@@ -23,7 +23,7 @@ struct DefaultSearchBookUsecaseTests {
             title: "title-\(id)",
             subtitle: "subtitle-\(id)",
             priceText: "$\(id)",
-            imageURL: URL(string: "https://example.com/image\(id).png")!,
+            imageURL: "https://example.com/image\(id).png",
             detailURLString: "https://example.com/books/\(id)"
         )
     }
