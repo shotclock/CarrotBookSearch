@@ -81,9 +81,9 @@ enum BookAPI {
             let rating: String
             let desc: String
             let price: String
-            let image: URL
-            let url: URL
-            let pdf: [String: URL]?
+            let image: String
+            let url: String
+            let pdf: [String: String]?
         }
         
         struct ErrorResponse: APIErrorDefinition {

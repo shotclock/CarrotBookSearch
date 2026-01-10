@@ -283,8 +283,8 @@ final class BookDetailViewController: UIViewController,
         return view
     }
     
-    private func makePDFButtons(entries: Array<(key: String, value: URL)>) -> [UIButton] {
-        entries.map { (title: String, link: URL) in
+    private func makePDFButtons(entries: Array<(key: String, value: String)>) -> [UIButton] {
+        entries.map { (title: String, link: String) in
             var config = UIButton.Configuration.plain()
             config.title = title
             config.image = UIImage(systemName: "doc.richtext")
@@ -296,7 +296,7 @@ final class BookDetailViewController: UIViewController,
             button.translatesAutoresizingMaskIntoConstraints = false
             
             let action = UIAction { [weak self] _ in
-                self?.listener?.didTapOpenLinkButton(with: link.absoluteString)
+                self?.listener?.didTapOpenLinkButton(with: link)
             }
             
             button.addAction(action,
@@ -311,7 +311,7 @@ final class BookDetailViewController: UIViewController,
     // MARK: Private methods
     @objc
     private func didTapOpenLinkButton() {
-        guard let url = bookData?.url.absoluteString else {
+        guard let url = bookData?.linkURL else {
             return
         }
         
@@ -333,19 +333,19 @@ extension BookDetailViewController: BookDetailViewControllerPresentable {
             "ISBN-10: \(data.isbn10)",
             "ISBN-13: \(data.isbn13)",
             "Pages: \(data.pages)",
-            "Year: \(data.year)"
+            "Year: \(data.publishYear)"
         ].joined(separator: "\n")
         
         priceLabel.text = data.price
         ratingLabel.text = data.rating
-        descriptionLabel.text = data.desc
+        descriptionLabel.text = data.description
         
         pdfLinksStackView.arrangedSubviews.forEach { view in
             pdfLinksStackView.removeArrangedSubview(view)
             view.removeFromSuperview()
         }
         
-        let pdfEntries = (data.pdf ?? [:]).sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
+        let pdfEntries = (data.pdfData ?? [:]).sorted { $0.key.localizedStandardCompare($1.key) == .orderedAscending }
 
         let hasPDF = pdfEntries.isEmpty == false
         pdfSectionTitleLabel.isHidden = !hasPDF

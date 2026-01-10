@@ -19,16 +19,16 @@ public struct BookDetail: Equatable, Sendable {
     public let isbn13: String
 
     public let pages: String
-    public let year: String
+    public let publishYear: String
     public let rating: String
 
-    public let desc: String
+    public let description: String
     public let price: String
 
-    public let image: URL
-    public let url: URL
+    public let imageURL: String
+    public let linkURL: String
     
-    public let pdf: [String: URL]?
+    public let pdfData: [String: String]?
 
     public init(
         title: String,
@@ -39,13 +39,13 @@ public struct BookDetail: Equatable, Sendable {
         isbn10: String,
         isbn13: String,
         pages: String,
-        year: String,
+        publishYear: String,
         rating: String,
-        desc: String,
+        description: String,
         price: String,
-        image: URL,
-        url: URL,
-        pdf: [String: URL]?
+        imageURL: String,
+        linkURL: String,
+        pdfData: [String: String]?
     ) {
         self.title = title
         self.subtitle = subtitle
@@ -55,12 +55,12 @@ public struct BookDetail: Equatable, Sendable {
         self.isbn10 = isbn10
         self.isbn13 = isbn13
         self.pages = pages
-        self.year = year
+        self.publishYear = publishYear
         self.rating = rating
-        self.desc = desc
+        self.description = description
         self.price = price
-        self.image = image
-        self.url = url
-        self.pdf = pdf
+        self.imageURL = imageURL
+        self.linkURL = linkURL
+        self.pdfData = pdfData
     }
 }

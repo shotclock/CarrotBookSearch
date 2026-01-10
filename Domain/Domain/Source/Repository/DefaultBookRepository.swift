@@ -42,12 +42,12 @@ public final class DefaultBookRepository: BookRepository {
                      isbn10: response.isbn10,
                      isbn13: response.isbn13,
                      pages: response.pages,
-                     year: response.year,
+                     publishYear: response.year,
                      rating: response.rating,
-                     desc: response.desc,
+                     description: response.desc,
                      price: response.price,
-                     image: response.image,
-                     url: response.url,
-                     pdf: response.pdf)
+                     imageURL: response.image,
+                     linkURL: response.url,
+                     pdfData: response.pdf)
     }
 }
