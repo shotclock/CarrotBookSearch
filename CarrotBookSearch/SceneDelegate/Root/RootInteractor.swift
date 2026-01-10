@@ -10,10 +10,11 @@ import Base
 
 // 뷰모델 -> 라우터
 protocol RootRoutable: Routable {
-    func detach(_ router: Routable)
+    func attachBookList()
 }
 
-final class RootInteractor: Interactor<Any?>, RootInteractable {
+final class RootInteractor: Interactor<Any?>,
+                            RootInteractable {
     weak var router: RootRoutable?
     
     init() {
@@ -22,6 +23,8 @@ final class RootInteractor: Interactor<Any?>, RootInteractable {
     
     override func attached() {
         super.attached()
+        
+        router?.attachBookList()
     }
     
     override func detached() {

@@ -12,8 +12,8 @@ import Base
 public final class BookListBuilder: BookListBuildable {
     private let component: BookListComponent
     
-    public init(component: BookListComponent) {
-        self.component = component
+    public init(dependency: BookListDependency) {
+        self.component = .init(dependency: dependency)
     }
     
     public func build(withListener listener: BookListListener?) -> ViewableRoutable {

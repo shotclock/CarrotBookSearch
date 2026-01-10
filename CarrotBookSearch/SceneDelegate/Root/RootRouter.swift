@@ -7,10 +7,12 @@
 
 import UIKit
 import Base
+import BookListInterface
 
 // 라우터 -> 뷰모델
 // 하위 뷰모델의 리스너 conform
-protocol RootInteractable: Interactable {
+protocol RootInteractable: Interactable,
+                           BookListListener {
     var router: RootRoutable? { get set }
 }
 
@@ -21,7 +23,13 @@ protocol RootViewControllable: UIViewController {
 
 final class RootRouter: LaunchRouter<RootInteractable> {
     
-    override init(interactor: RootInteractable) {
+    private let bookListBuilder: BookListBuildable
+    private var bookListRouter: ViewableRoutable?
+    
+    init(interactor: RootInteractable,
+         bookListBuilder: BookListBuildable) {
+        self.bookListBuilder = bookListBuilder
+        
         super.init(interactor: interactor)
         
         interactor.router = self
@@ -29,7 +37,19 @@ final class RootRouter: LaunchRouter<RootInteractable> {
 }
 
 extension RootRouter: RootRoutable {
-    func detach(_ router: Routable) {
+    func attachBookList() {
+        guard bookListRouter == nil else {
+            return
+        }
         
+        let router = bookListBuilder.build(withListener: intereactorType)
+        
+        do {
+            try attachRouter(router)
+            window?.rootViewController = router.viewController
+            bookListRouter = router
+        } catch {
+            assertionFailure("attach 실패 \(error.localizedDescription)")
+        }
     }
 }

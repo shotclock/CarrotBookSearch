@@ -15,6 +15,7 @@ public protocol LaunchRoutable: Routable {
 public extension LaunchRoutable {
     func launch(from window: UIWindow?) {
         self.window = window
+        window?.makeKeyAndVisible()
         interactor?.attached()
     }
 }

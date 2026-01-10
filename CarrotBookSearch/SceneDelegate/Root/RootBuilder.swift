@@ -18,6 +18,7 @@ public final class RootBuilder {
     public func build() -> LaunchRoutable {
         let interactor = RootInteractor()
         
-        return RootRouter(interactor: interactor)
+        return RootRouter(interactor: interactor,
+                          bookListBuilder: component.bookListBuilder)
     }
 }

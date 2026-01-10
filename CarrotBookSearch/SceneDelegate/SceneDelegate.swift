@@ -10,8 +10,6 @@ import Base
 import BookList
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
-    var window: UIWindow?
     var launchRouter: LaunchRoutable?
     
     let component = RootComponent()
@@ -27,8 +25,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         launchRouter = RootBuilder(component: component).build()
         launchRouter?.launch(from: window)
-        
-        self.window = window
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
