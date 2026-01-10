@@ -67,7 +67,6 @@ public class DefaultSearchBookUsecase: SearchBookUsecase {
         canLoadMore = false
     }
     
-    
     /*
      itbook API는 페이지 범위를 초과한 요청에서 totalCount가 0으로 내려오는 경우가 있어
      total 값만으로는 마지막 페이지 여부를 신뢰할 수 없다.

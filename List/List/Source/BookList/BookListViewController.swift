@@ -13,6 +13,7 @@ import DomainInterface
 protocol BookListViewControllerListener: AnyObject {
     func didRequestSearch(keyword: String)
     func didSelectBook(_ book: BookSummary)
+    func loadNextPageIfNeeded()
 }
 
 enum Section {
@@ -162,6 +163,18 @@ extension BookListViewController: UITableViewDelegate {
         
         listener?.didSelectBook(bookData)
     }
+    
+    func tableView(_ tableView: UITableView,
+                   willDisplay cell: UITableViewCell,
+                   forRowAt indexPath: IndexPath) {
+        let threshold = 5
+        let currentItemCount = diffableDataSource.snapshot().itemIdentifiers.count
+        let lastTriggerIndex = max(0, currentItemCount - threshold)
+
+        if indexPath.row >= lastTriggerIndex {
+            listener?.loadNextPageIfNeeded()
+        }
+    }
 }
 
 // MARK: BookListViewControllable
@@ -178,11 +191,11 @@ extension BookListViewController: BookListViewControllable {
 
 // MARK: BookListViewControllerPresentable
 extension BookListViewController: BookListViewControllerPresentable {
-    func presentSearchResult(data: [BookSummary]) {
+    func presentSearchResult(data: [BookSummary]) async {
         var snapshot = NSDiffableDataSourceSnapshot<Section, BookSummary>()
         snapshot.appendSections([.main])
         snapshot.appendItems(data)
         
-        diffableDataSource.apply(snapshot)
+        await diffableDataSource.apply(snapshot)
     }
 }
