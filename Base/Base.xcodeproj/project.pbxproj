@@ -22,6 +22,8 @@
 		2BAE784B2F115EBE0081BB43 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE784A2F115EB90081BB43 /* Array+Extension.swift */; };
 		2BAE785C2F1216970081BB43 /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE785B2F1216930081BB43 /* LaunchRouter.swift */; };
 		2BAE78EC2F12A77C0081BB43 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78EB2F12A7770081BB43 /* String+Extension.swift */; };
+		2BAE78EF2F12AA850081BB43 /* ArraySafeSubscriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78EE2F12AA840081BB43 /* ArraySafeSubscriptTests.swift */; };
+		2BAE78F12F12AC7D0081BB43 /* StringHTMLExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78F02F12AC7B0081BB43 /* StringHTMLExtensionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		2BAE784A2F115EB90081BB43 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		2BAE785B2F1216930081BB43 /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 		2BAE78EB2F12A7770081BB43 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		2BAE78EE2F12AA840081BB43 /* ArraySafeSubscriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArraySafeSubscriptTests.swift; sourceTree = "<group>"; };
+		2BAE78F02F12AC7B0081BB43 /* StringHTMLExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringHTMLExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		2BAE77922F1121C50081BB43 /* BaseTests */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78ED2F12AA7C0081BB43 /* Extension */,
 				2BAE77BF2F1130410081BB43 /* Dummy */,
 				2BAE77C42F11309A0081BB43 /* RouterTests.swift */,
 			);
@@ -154,6 +159,15 @@
 			children = (
 				2BAE78EB2F12A7770081BB43 /* String+Extension.swift */,
 				2BAE784A2F115EB90081BB43 /* Array+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		2BAE78ED2F12AA7C0081BB43 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2BAE78F02F12AC7B0081BB43 /* StringHTMLExtensionTests.swift */,
+				2BAE78EE2F12AA840081BB43 /* ArraySafeSubscriptTests.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -289,6 +303,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78F12F12AC7D0081BB43 /* StringHTMLExtensionTests.swift in Sources */,
+				2BAE78EF2F12AA850081BB43 /* ArraySafeSubscriptTests.swift in Sources */,
 				2BAE77C52F11309A0081BB43 /* RouterTests.swift in Sources */,
 				2BAE77C12F1130570081BB43 /* TestInteractor.swift in Sources */,
 				2BAE77C32F1130780081BB43 /* TestRouter.swift in Sources */,
