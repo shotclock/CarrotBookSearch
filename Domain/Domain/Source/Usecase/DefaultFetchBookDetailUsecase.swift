@@ -29,10 +29,10 @@ public final class DefaultFetchBookDetailUsecase: FetchBookDetailUsecase {
         }
         
         // 13자인지 체크
-        guard isbn13.count == 13 else {
+        guard trimmed.count == 13 else {
             throw FetchBookDetailError.invalidISBN13
         }
         
-        return try await repository.fetchBookDetail(isbn13: isbn13)
+        return try await repository.fetchBookDetail(isbn13: trimmed)
     }
 }
