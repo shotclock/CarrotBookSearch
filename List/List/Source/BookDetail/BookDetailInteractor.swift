@@ -22,7 +22,11 @@ final class BookDetailInteractor: Interactor<BookDetailViewControllerPresentable
     weak var router: BookDetailRoutable?
     weak var listener: BookDetailListener?
     
-    override init(presenter: BookDetailViewControllerPresentable?) {
+    private let isbn13: String
+    
+    init(presenter: BookDetailViewControllerPresentable?,
+         isbn13: String) {
+        self.isbn13 = isbn13
         super.init(presenter: presenter)
         
         presenter?.listener = self

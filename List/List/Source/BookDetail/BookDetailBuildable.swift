@@ -8,5 +8,6 @@
 import Base
 
 public protocol BookDetailBuildable {
-    func build(withListener listener: BookDetailListener?) -> any ViewableRoutable
+    func build(withListener listener: BookDetailListener?,
+               isbn13: String) -> any ViewableRoutable
 }

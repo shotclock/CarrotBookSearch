@@ -7,24 +7,19 @@
 
 import UIKit
 import Base
+import DomainInterface
 
 // 뷰 컨트롤러 -> 뷰모델
 protocol BookListViewControllerListener: AnyObject {
     func didRequestSearch(keyword: String)
-    func didSelectBook(_ book: DummyBook)
+    func didSelectBook(_ book: BookSummary)
 }
 
 enum Section {
     case main
 }
 
-struct DummyBook: Hashable {
-    let id = UUID()
-    let title: String
-}
-
-final class BookListViewController: UIViewController,
-                                    BookListViewControllerPresentable {
+final class BookListViewController: UIViewController {
     // MARK: Definition
     struct UI {
         struct LogoImageView {
@@ -74,7 +69,7 @@ final class BookListViewController: UIViewController,
         return tableView
     }()
     
-    private lazy var diffableDataSource: UITableViewDiffableDataSource<Section, DummyBook> = {
+    private lazy var diffableDataSource: UITableViewDiffableDataSource<Section, BookSummary> = {
         .init(tableView: bookListTableView) { [weak self] tableView, indexPath, itemIdentifier in
             let cell = tableView.dequeueReusableCell(withIdentifier: BookTableViewCell.reuseIdentifier, for: indexPath) as? BookTableViewCell
             
@@ -94,13 +89,6 @@ final class BookListViewController: UIViewController,
         super.viewDidLoad()
         
         setupUI()
-        
-        // 테스트 스냅샷
-        var snapshot = NSDiffableDataSourceSnapshot<Section, DummyBook>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems([.init(title: "1"), .init(title: "2"), .init(title: "3"), .init(title: "4"), .init(title: "5"), .init(title: "6") ,.init(title: "7")])
-        
-        diffableDataSource.apply(snapshot)
     }
     
     // MARK: UI setting
@@ -185,5 +173,16 @@ extension BookListViewController: BookListViewControllable {
     
     func popToBookListController() {
         navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+// MARK: BookListViewControllerPresentable
+extension BookListViewController: BookListViewControllerPresentable {
+    func presentSearchResult(data: [BookSummary]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, BookSummary>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(data)
+        
+        diffableDataSource.apply(snapshot)
     }
 }

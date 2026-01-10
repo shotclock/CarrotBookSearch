@@ -27,6 +27,10 @@
 		2BAE78692F121A4C0081BB43 /* RootBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78622F121A4C0081BB43 /* RootBuilder.swift */; };
 		2BAE786A2F121A4C0081BB43 /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78652F121A4C0081BB43 /* RootRouter.swift */; };
 		2BAE786B2F121A4C0081BB43 /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAE78642F121A4C0081BB43 /* RootInteractor.swift */; };
+		2BAE78D72F123D5D0081BB43 /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78D62F123D5D0081BB43 /* Domain.framework */; };
+		2BAE78D82F123D5D0081BB43 /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78D62F123D5D0081BB43 /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2BAE78DA2F123D620081BB43 /* DomainInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78D92F123D620081BB43 /* DomainInterface.framework */; };
+		2BAE78DB2F123D620081BB43 /* DomainInterface.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2BAE78D92F123D620081BB43 /* DomainInterface.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2BAE78DB2F123D620081BB43 /* DomainInterface.framework in Embed Frameworks */,
+				2BAE78D82F123D5D0081BB43 /* Domain.framework in Embed Frameworks */,
 				2BAE78412F1141A40081BB43 /* BookList.framework in Embed Frameworks */,
 				2BAE783E2F113F230081BB43 /* Networking.framework in Embed Frameworks */,
 				2BAE78342F113F170081BB43 /* Base.framework in Embed Frameworks */,
@@ -86,6 +92,8 @@
 		2BAE78632F121A4C0081BB43 /* RootComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootComponent.swift; sourceTree = "<group>"; };
 		2BAE78642F121A4C0081BB43 /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
 		2BAE78652F121A4C0081BB43 /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		2BAE78D62F123D5D0081BB43 /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BAE78D92F123D620081BB43 /* DomainInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DomainInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BAE78DA2F123D620081BB43 /* DomainInterface.framework in Frameworks */,
+				2BAE78D72F123D5D0081BB43 /* Domain.framework in Frameworks */,
 				2BAE78402F1141A40081BB43 /* BookList.framework in Frameworks */,
 				2BAE783D2F113F230081BB43 /* Networking.framework in Frameworks */,
 				2BAE78332F113F170081BB43 /* Base.framework in Frameworks */,
@@ -171,6 +181,8 @@
 		2BAE78312F113F170081BB43 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BAE78D92F123D620081BB43 /* DomainInterface.framework */,
+				2BAE78D62F123D5D0081BB43 /* Domain.framework */,
 				2BAE78422F1141A80081BB43 /* BookListInterface.framework */,
 				2BAE783F2F1141A40081BB43 /* BookList.framework */,
 				2BAE783C2F113F230081BB43 /* Networking.framework */,

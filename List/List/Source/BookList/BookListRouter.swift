@@ -45,12 +45,13 @@ final class BookListRouter: ViewableRouter<BookListInteractable, BookListViewCon
 }
 
 extension BookListRouter: BookListRoutable {
-    func attachBookDetail(with data: DummyBook) {
+    func attachBookDetail(with data: String) {
         guard bookDetailRouter == nil else {
             return
         }
         
-        let router = bookDetailBuilder.build(withListener: interactorType)
+        let router = bookDetailBuilder.build(withListener: interactorType,
+                                             isbn13: data)
         
         do {
             try attachRouter(router)

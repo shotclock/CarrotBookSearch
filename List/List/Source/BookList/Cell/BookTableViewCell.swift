@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DomainInterface
 
 final class BookTableViewCell: UITableViewCell {
     // MARK: Definition
@@ -158,12 +159,12 @@ final class BookTableViewCell: UITableViewCell {
         ])
     }
     
-    func configure(data: DummyBook) {
+    func configure(data: BookSummary) {
         titleLabel.text = data.title
-        subtitleLabel.text = "서브타이틀 영역"
-        isbn13Label.text = "ISBN13: 12314412312"
-        priceLabel.text = "$ 4.73"
-        urlLabel.text = "www.google.com"
+        subtitleLabel.text = data.subtitle
+        isbn13Label.text = data.isbn13
+        priceLabel.text = data.priceText
+        urlLabel.text = data.detailURLString
         
         bookImageView.image = .logo
     }

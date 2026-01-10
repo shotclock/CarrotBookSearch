@@ -7,6 +7,8 @@
 
 import Base
 import BookList
+import Domain
+import DomainInterface
 
 public final class EmptyDependency: Dependency {
     
@@ -23,5 +25,7 @@ public final class RootComponent: Component<EmptyDependency> {
 }
 
 extension RootComponent: BookListDependency {
-    
+    public var searchBookUsecase: SearchBookUsecase {
+        DefaultSearchBookUsecase(repository: DefaultBookRepository())
+    }
 }
